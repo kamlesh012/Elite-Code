@@ -1,7 +1,5 @@
 //Binary Search on Answer.
-//Book Allocation
-//Similar Problem-Split Array Largest Sum (LeetCode)
-
+//Book Allocation/Split Array Largest Sum (LeetCode)
 
 //The Idea is to find a minimum possible maximum book size that can be allocated to m students.
 
@@ -36,7 +34,11 @@ int allocate(int a[], int n, int m) {
 	if (n < m)return -1;
 
 	int high = accumulate(a, a + n, 0);
-	int low = 0;//can be *max_element(a,a+n) also Doesn't matter though.
+// 	int low = 0;		//Will work for book allocation but not for Split Array Largest Sum
+	
+	int low=*max_element(a,a+n) 	//Works for both.
+	//For Split array largest sum[in case n==m then min pages for a single student should max.]so keeping low = max.
+		
 	int ans = -1;
 
 	while (low <= high) {
