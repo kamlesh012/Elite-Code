@@ -1,2 +1,1 @@
-# Interview-Problems
-My list of random data structure and algorithms problems solved.
+Data Structure & Algorithmic Problems' Solution ->Leetcode & Other Platforms
