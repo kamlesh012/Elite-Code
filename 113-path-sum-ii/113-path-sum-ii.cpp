@@ -42,10 +42,11 @@ public:
     }
     
     vector<vector<int>> pathSum(TreeNode* root, int targetSum) {
-        vector<vector<int>> ans1;
+        // vector<vector<int>> ans1;
         vector<int> ans;
-        vector<vector<int>> a1=sum(root,targetSum,0,ans);
-        if(a1.empty())return ans1;
-        else return a1;
+        // vector<vector<int>> a1=sum(root,targetSum,0,ans);
+        // if(a1.empty())return ans1;
+        // else return a1;
+        return sum(root,targetSum,0,ans);
     }
 };
