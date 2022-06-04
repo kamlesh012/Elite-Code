@@ -1,0 +1,163 @@
+
+//Intermediate Graph Algorithms
+//Weighted Graphs Representation in C++
+
+//Shortest-Path + Cycle Detecting BFS
+//Dijkstra's Algorithm
+//Prim's Algorithm
+
+#include <limits.h>
+#include <iostream>
+#include <vector>
+#include <queue>
+using namespace std;
+
+void pro_BFS(vector<int> adjl[], int nodes) {
+
+	int start = 0;
+
+	vector<int> dist(nodes, INT_MAX);
+	vector<int> parent(nodes, -1);
+	vector<int> visited(nodes, 0);
+	vector<int> bfs;
+	queue<int> q;
+	bool cycle = false;
+
+	q.push(start);
+	dist[start] = 0;
+	parent[start] = -1;
+
+	while (!q.empty()) {
+
+		int node = q.front();
+		q.pop();
+
+		visited[node]++;
+		bfs.push_back(node);
+
+		for (auto i : adjl[node]) {
+			if (!visited[i]) {
+				if (dist[i] > dist[node] + 1) {
+					dist[i] = dist[node] + 1;
+					parent[i] = node;
+					q.push(i);
+				}
+			}
+			else if (parent[node] != i) {
+				cycle = true; break;
+			}
+		}
+		if (cycle)break;
+	}
+
+	if (cycle)cout << "Cycle Exists" << endl;
+	else {
+		cout << "BFS -> ";
+		for (auto i : bfs)cout << i << " ";
+		cout << endl;
+		cout << "Parents -> ";
+		for (auto i : parent)cout << i << " ";
+		cout << endl;
+		cout << "Shortest Path from Source -> ";
+		for (auto i : dist)cout << i << " ";
+		cout << endl;
+	}
+
+}
+
+//Dijkstra'a Algorithm
+void dijkstra(vector<pair<int, int>> adjlist[], int nodes, int source) {
+
+	priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> q;
+	q.push({0, source});
+	vector<int> dist(nodes + 1, INT_MAX);
+	dist[source] = 0;
+
+	while (!q.empty()) {
+
+		int node = q.top().second;
+		int dst = q.top().first;
+
+		for (auto i : adjlist[node]) {
+
+			int child = i.first;
+			int wt = i.second;
+
+			if (dist[child] > dist[node] + wt) {
+				dist[child] = dist[node] + wt;
+				q.push({dist[child], child});
+			}
+			/*
+						if(dist[child]>dst+wt){
+							dist[child]=dst+wt;
+							q.push({dist[child],child});
+						}
+			*/
+		}
+	}
+	for (auto i : dist)cout << i << " "; cout << endl;
+}
+
+void prims(vector<pair<int, int>> adjl[], int nodes) {
+
+	vector<int> parent(nodes + 1, -1);
+	vector<int> dist(nodes + 1, INT_MAX);
+	vector<bool> visited(nodes + 1, false);
+	priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> q;
+	int start = 0;
+	q.push({0, start});
+	dist[start] = 0;
+	parent[start] = -1;
+	for (int i = 0; i < nodes; i++) {
+		int curr = q.top().second;
+		// int dst=q.top().first;
+		q.pop();
+		visited[curr] = true;
+		for (auto x : adjl[curr]) {
+			int child = x.first;
+			int wt = x.second;
+
+			if (!visited[curr] && dist[child] > wt) {
+				dist[child] = wt;
+				parent[child] = curr;
+				q.push({dist[child], child});
+			}
+
+		}
+	}
+	//not sure about range for which we should access
+	//parent array.
+	for (int i = 1; i < nodes; i++) {
+		cout << parent[i] << " - " << i << endl;
+	}
+}
+
+int main() {
+
+	//Representation in C++;
+
+	int nodes, edges; cin >> nodes >> edges;
+	/*
+	//Weighted Adjacency List
+	vector<pair<int, int>> adjlist[nodes + 1];
+	for (int i = 0; i < edges; i++) {
+		int u, v, w;
+		cin >> u >> v >> w;
+		adjlist[u].push_back({v, w});
+		adjlist[v].push_back({u, w});
+	}
+	*/
+	// /*
+	//Adjacency List
+	vector<int> adjlist[nodes + 1];
+	for (int i = 0; i < edges; i++) {
+		int u, v;
+		cin >> u >> v;
+		adjlist[u].push_back(v);
+		adjlist[v].push_back(u);
+	}
+	pro_BFS(adjlist, nodes);
+	// */
+	return 0;
+
+}
