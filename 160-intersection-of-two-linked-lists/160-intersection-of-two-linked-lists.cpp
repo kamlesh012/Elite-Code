@@ -11,19 +11,15 @@ public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
         ListNode *dum1=headA;
         ListNode *dum2=headB;
-        vector<int> a,b;
-        
+        int n=0,m=0;
         while(dum1){
-            a.push_back(dum1->val);
+            n++;
             dum1=dum1->next;
         }
-        
         while(dum2){
-            b.push_back(dum2->val);
+            m++;
             dum2=dum2->next;
         }
-        int n=a.size(),m=b.size();
-        int i=n-1,j=m-1;
         if(n<m){
             int diff=m-n;
             int cnt=0;
