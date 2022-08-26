@@ -24,9 +24,8 @@ public:
                 temp=temp->next;
                 
                 if(head==del)head=del->next;
-                // del->next=NULL;
-                delete(del);
                 
+                delete(del);
             }
             else{
                 temp=temp->next;
