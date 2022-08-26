@@ -16,13 +16,15 @@ public:
         ListNode *prev=new ListNode();
         prev->next=head;
         while(temp!=NULL){
-            if(temp->val==val){
+            if(temp->val==val){   
                 
                 ListNode *del=temp;
+                
                 prev->next=temp->next;
                 temp=temp->next;
+                
                 if(head==del)head=del->next;
-                del->next=NULL;
+                // del->next=NULL;
                 delete(del);
                 
             }
@@ -31,9 +33,6 @@ public:
                 prev=prev->next;
             }
         }
-        // if(head==NULL) 
-            // return NULL;
-        // else
             return head;
     }
 };
