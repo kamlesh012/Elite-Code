@@ -1,6 +1,8 @@
 class Solution {
 public:
     bool reorderedPowerOf2(int n) {
+        //Simply Brute FOrce over all powers of two after sorting them.
+        
         string s=to_string(n);
         sort(s.begin(),s.end());
         vector<string> power;
