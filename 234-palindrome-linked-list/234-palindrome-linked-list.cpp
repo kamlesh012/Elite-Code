@@ -10,47 +10,39 @@
  */
 class Solution {
 public:
-    /*  This Standard Approach is Pending.
-    
-    ListNode *md=head,*f=head,*last=NULL;
-        while(f){
-            last=md;
-            md=md->next;
-            f=f->next;
-            if(f)f=f->next;
-        }
-        ListNode *prev=md,*curr=NULL,*nxt=NULL;
-        if(prev && prev->next)curr=prev->next;
-        if(curr && curr->next)nxt=curr->next;
+    ListNode* Reverse(ListNode* slow){
+        ListNode *prev=NULL;
+        ListNode *curr=slow;
+
         while(curr){
+             
+            ListNode *nxt=curr->next;      
             curr->next=prev;
             prev=curr;
             curr=nxt;
-            if(nxt)nxt=nxt->next;
+            
         }
-        prev->next=NULL;
-        last->next=NULL;
         
-        ListNode *strt=head,*strt2=md;
-        while(strt && strt2){
-            cout<<strt->val<<" "<<strt2->val<<endl;
-            if(strt->val!=strt2->val)return false;
-            strt=strt->next;
-            strt2=strt2->next;
-        }
-        return true;
-        
-        */
+        return prev;
+    }
+    
     
     bool isPalindrome(ListNode* head) {
-        string s;
-        while (head != NULL) {
-            s += head->val;
-            head = head->next;
+        ListNode *slow=head;
+        ListNode *fast=head;
+        while(fast && fast->next){
+            slow=slow->next;
+            fast=fast->next->next;
         }
-
-        string t = s;
-        reverse(t.begin(), t.end());
-        return s == t;
+        
+        ListNode *head2 = Reverse(slow);
+        ListNode *temp=head;
+        bool ok=true;
+        while(head2!=NULL){
+            if(temp->val!=head2->val){ok=false;break;}
+            temp=temp->next;
+            head2=head2->next;
+        }
+        return ok;
     }
 };
