@@ -11,22 +11,18 @@
  */
 class Solution {
 public:
-    bool sum(TreeNode *root,int target,int curr){
-        if(root && !root->left && !root->right)
-        {
-            curr+=root->val;
-            if(curr==target)return true;
-            return false;
+    bool sol(TreeNode *root,int target,int curr){
+        if(root && !root->left && !root->right){
+            if(curr+root->val==target)return true;
         }
         else if(root){
-            curr+=root->val;
-            bool ok1=sum(root->left,target,curr);
-            bool ok2=sum(root->right,target,curr);
-            return ok1||ok2;
+            bool l=sol(root->left,target,curr+(root->val));
+            bool r=sol(root->right,target,curr+(root->val));
+            return l || r;
         }
         return false;
     }
     bool hasPathSum(TreeNode* root, int targetSum) {
-     return sum(root,targetSum,0)   ;
+        return sol(root,targetSum,0);
     }
 };
