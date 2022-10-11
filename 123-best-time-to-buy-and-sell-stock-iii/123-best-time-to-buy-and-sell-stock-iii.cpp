@@ -16,28 +16,8 @@ public:
     }
     
     int maxProfit(vector<int>& prices) {
-        //DP
         int n=prices.size();
         vector<vector<vector<int>>> dp(n+1,vector<vector<int>>(2,vector<int>(3,-1)));
         return rec(prices,0,n,1,2,dp);
-        // for(auto i:dp){
-        //     for(auto j:i){
-        //         for(auto x:j){
-        //             cout<<x<<" ";
-        //         }
-        //         cout<<endl;
-        //     }
-        //     cout<<endl;
-        // }
-        // return 0;
-        
-        //Greedy
-        // int ans=0;
-        // for(int i=1;i<prices.size();i++){
-        //     if(prices[i]>prices[i-1]){
-        //         ans+=prices[i]-prices[i-1];
-        //         }
-        // }
-        // return ans;
     }
 };
