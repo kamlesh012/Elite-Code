@@ -10,6 +10,7 @@ public:
     }
     
     int findCircleNum(vector<vector<int>>& isConnected) {
+        //DFS in a Adjacency Matrix.
         int n=isConnected.size();
         vector<int> visited(n+1,0);
         int component=0;
