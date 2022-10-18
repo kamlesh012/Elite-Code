@@ -1,6 +1,8 @@
 class Solution {
 public:
     int numEnclaves(vector<vector<int>>& grid) {
+        //Multi-Source BFS + Simple Observation
+        
         int n=grid.size();
         int m=grid[0].size();
         vector<vector<int>> visited(n,vector<int>(m,0)),distance(n,vector<int>(m,0));
