@@ -3,7 +3,8 @@ public:
     
     
     int orangesRotting(vector<vector<int>>& grid) {
-        
+        //Multi-Source BFS.
+        //Shortest Paths.
         int n=grid.size(),m=grid[0].size();
         vector<vector<int>> visited(n,vector<int>(m,0)),distance(n,vector<int>(m,INT_MAX));
         queue<pair<int,int>> q;
@@ -63,10 +64,8 @@ public:
                     {
                     ans=max(ans,distance[i][j]);
                 }
-                    // cout<<visited[i][j]<<" "<<grid[i][j]<<endl;
             }
         }
-            // cout<<endl;
         
         return ans;
     }
