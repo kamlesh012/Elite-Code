@@ -3,6 +3,7 @@ public:
     vector<vector<int>> updateMatrix(vector<vector<int>>& grid) {
               //Multi-Source BFS.
         //Shortest Paths.
+        //Same as Rotten Tomatoes.
         int n=grid.size(),m=grid[0].size();
         vector<vector<int>> visited(n,vector<int>(m,0)),distance(n,vector<int>(m,INT_MAX));
         queue<pair<int,int>> q;
