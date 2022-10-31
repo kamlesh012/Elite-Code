@@ -29,6 +29,7 @@ public:
                 if(indegree[i]==0)q.push(i);
             }
         }
+        //if all nodes cannot be visited then clear the stored nodes.
         if(ans.size()!=n)ans.clear();
         return ans;
     }
