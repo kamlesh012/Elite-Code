@@ -39,12 +39,12 @@ public:
         //Inserting 0 with 1 occurence in our map
         //in case sum is equal to k then sum-k==0
         //which will be not found in map if do not add 0 explicitely.
-        // mp[0]=1;
+        mp[0]=1;
         
         for(int i=0;i<n;i++){
             
             //This if condition is alternative to mp[0]=1 that we did above.
-            if(nums[i]==k)cnt++;
+            // if(nums[i]==k)cnt++;
             //if prefix sum if k then increase ans by one.
             //but still need to do the below operation
             //to add all the previous occurences/subarrays.
