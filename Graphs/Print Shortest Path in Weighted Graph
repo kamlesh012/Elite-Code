@@ -1,0 +1,66 @@
+ vector<int> shortestPath(int n, int m, vector<vector<int>>& edges) {
+        
+        //Shortest Path in a Undirected Weighted Graph Using Dijkstra's ALgorigthm
+        //Used a Parent Array to keep track of parent of each node
+        //(Just as in cycle detection using dfs)
+        //at last retrieve the path using an algorithm similar to path compression in dsu
+        //reverse the retrieved path to get the answer.
+        
+        vector<vector<int>> adjl[n+1];
+        
+        for(int i=0;i<m;i++){
+            
+            vector<int> temp{edges[i][1],edges[i][2]};
+            adjl[edges[i][0]].push_back(temp);
+            
+            vector<int> memp{edges[i][0],edges[i][2]};
+            adjl[edges[i][1]].push_back(memp);
+            
+            // cout<<edges[i][0]<<" "<<edges[i][1]<<" "<<edges[i][2]<<endl;
+        }
+        
+        vector<int> parent(n+1,-1);
+        vector<int> dist(n+1,1e6);
+        parent[1]=1;
+        dist[1]=0;
+        
+        priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>> q;
+        q.push({0,1});
+        
+        while(!q.empty()){
+            int dst=q.top().first;
+            int curr=q.top().second;
+            // cout<<dst<<" "<<curr<<endl;
+            q.pop();
+            
+            for(auto adjnode:adjl[curr]){
+                
+                int node=adjnode[0];
+                int wt=adjnode[1];
+                
+                // cout<<node<<" "<<wt<<endl;
+                if(dist[node]>dist[curr]+wt){
+                    
+                    dist[node]=dist[curr]+wt;
+                    q.push({dist[node],node});
+                    
+                    parent[node]=curr;
+                }
+            }
+        }
+        
+        vector<int> ans;
+        int node=n;
+        //if ans not found return -1   
+        if(parent[node]==-1)return vector<int>{-1};
+        
+        //path compression algorithm
+        while(parent[node]!=node){
+                ans.push_back(node);
+                node=parent[node];
+        }
+        ans.push_back(node);
+        
+        reverse(ans.begin(),ans.end());
+        return ans;
+    }
