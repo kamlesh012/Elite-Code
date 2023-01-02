@@ -1,12 +1,73 @@
 class Solution {
 public:
+    
     int shortestPathBinaryMatrix(vector<vector<int>>& grid) {
+        //BFS
+        queue<pair<pair<int,int>,int>> q;
+        q.push({{0,0},1});
+        
         int n=grid.size();
+        vector<vector<int>> visited(n,vector<int>(n,0));
+        
+        if(grid[0][0] || grid[n-1][n-1])return -1;
+        
+        while(!q.empty()){
+            
+            auto it=q.front();
+            q.pop();
+            
+            int dist=it.second;
+            int x=it.first.first;
+            int y=it.first.second;
+            
+            if(x==n-1 && y==n-1)return dist;
+            
+            for(int i=-1;i<=1;i++){
+                for(int j=-1;j<=1;j++){
+                        int u=x+i;
+                        int v=y+j;
+                        if((((u>=0) && (v>=0)) && u<n && v<n && grid[u][v]==0 && (visited[u][v]==0)))
+                        {
+                            q.push({{u,v},dist+1});
+                            visited[u][v]=1;
+                            //Remember WHY I marked it visited here.
+                        }
+                }
+            }   
+        }
+        
+        return -1;
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    //Dijkstra's Algorithm C++
+        
+        /*int n=grid.size();
         int m=grid.size();
         
         vector<vector<int>> dist(n,vector<int>(m,1000));
         
         if(grid[0][0]==0)dist[0][0]=0;
+        
         queue<pair<int,pair<int,int>>> q;
         q.push({0,{0,0}});
         
@@ -69,5 +130,6 @@ public:
         
         int ans=dist[n-1][n-1];
         return ans==1000?-1:ans+1;
+        */
     }
 };
