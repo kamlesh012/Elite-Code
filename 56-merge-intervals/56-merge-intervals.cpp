@@ -10,7 +10,7 @@ public:
         for(int i=1;i<intervals.size();i++){
             if(intervals[i][0]<=end){
                 end=max(end,intervals[i][1]);
-                start=min(start,intervals[i][0]);
+                // start=min(start,intervals[i][0]);
             }
             else{
                 ans.push_back(vector<int>{start,end});
