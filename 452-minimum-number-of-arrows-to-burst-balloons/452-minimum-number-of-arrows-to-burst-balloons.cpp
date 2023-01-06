@@ -1,15 +1,15 @@
 class Solution {
 public:
-    //Comparator for sorting points in increasing order of first index.
-    static bool comp(vector<int>&a,vector<int>&b){
-        if(a[0]==b[0]){
-            return a[1]<b[1];
-        }
-        return a[0]<b[0];
-    }
+//     //Comparator for sorting points in increasing order of first index.
+//     static bool comp(vector<int>&a,vector<int>&b){
+//         if(a[0]==b[0]){
+//             return a[1]<b[1];
+//         }
+//         return a[0]<b[0];
+//     }
     
     int findMinArrowShots(vector<vector<int>>& points) {
-        sort(points.begin(),points.end(),comp);
+        sort(points.begin(),points.end());
         int n=points.size();
         int cnt=1,curr=INT_MAX;
         
