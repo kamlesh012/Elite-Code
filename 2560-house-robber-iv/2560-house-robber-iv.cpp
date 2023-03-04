@@ -3,6 +3,7 @@ public:
     //Predicate to test if it is possible to steal at least k houses with the max amount of money smaller than or equal to mx.
     
     bool predicate(vector<int>& nums,int k,int mx){
+        
         for(int i=0;i<nums.size();i++){
             
             //if current house has money less than mx,pick it. because there is no max limit on the no. of houses we can steal. stealing extra houses won't do any harm .But we won't be able to pick the next one.
@@ -25,7 +26,11 @@ public:
     
     int minCapability(vector<int>& nums, int k) {
         int n=nums.size();
+        
+        //Using Invariant Binary Search 
+        
         int l=0,h=1e9+1;
+        //Setting l & h to boundary of our search space that are not inclusive in the search space.
         while(h-l>1){
             int mid=(h-l)/2+l;
             if(predicate(nums,k,mid))h=mid;
