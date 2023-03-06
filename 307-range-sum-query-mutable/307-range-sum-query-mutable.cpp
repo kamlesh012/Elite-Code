@@ -1,40 +1,60 @@
+#define ll long long
 class NumArray {
 public:
-    vector<int> blocks;
-    vector<int> num;
-    NumArray(vector<int>& nums) {
-        num=nums;
-        int n=nums.size();
-        int bs=sqrt(n+0.0)+1;
-        blocks.resize(bs);
-        for(int i=0;i<n;i++){
-            blocks[i/bs]+=nums[i];
+    vector<int> st;
+    vector<int> a;
+    void build(ll tidx,ll s,ll e){
+        // cout<<s<<" base case "<<e<<endl;
+        // cout<<tidx<<endl;
+        if(s==e){
+            st[tidx]=a[s];
+            return;
+            }
+        
+        ll mid=(s+e)/2;
+        build(2*tidx,s,mid);
+        build((2*tidx)+1,mid+1,e);
+        
+        st[tidx]=st[2*tidx]+st[(2*tidx)+1];
+        
+    }
+    void upd(ll tidx,ll i,ll val,ll s,ll e){
+        if(s==e && s==i){
+            st[tidx]=val;
+            return;
         }
+        ll mid=(s+e)/2;
+        if(i<=mid)upd(2*tidx,i,val,s,mid);
+        else upd((2*tidx)+1,i,val,mid+1,e);
+        
+        st[tidx]=st[2*tidx]+st[(2*tidx)+1];
+    }
+    int query(ll tidx,ll l,ll r,ll s,ll e){
+        //disjoint
+        if(s>r || l>e)return 0;
+        //total
+        if(s>=l && e<=r)return st[tidx];
+        //partial
+        ll mid=(s+e)/2;
+        int left=query(2*tidx,l,r,s,mid);
+        int right=query(2*tidx+1,l,r,mid+1,e);
+        return left+right;
+    }
+    
+    NumArray(vector<int>& nums) {
+        a=nums;
+        int n=nums.size();
+        st.resize(4*n,0);
+        build(1,0,n-1);
+        
     }
     
     void update(int index, int val) {
-        int bs=blocks.size();
-        int bl=index/bs;
-        blocks[bl]-=num[index];
-        num[index]=val;
-        blocks[bl]+=num[index];
+        upd(1,index,val,0,a.size()-1);
     }
     
     int sumRange(int left, int right) {
-        int bs=num.size();
-        bs=sqrt(bs+0.0)+1;
-        int sum=0;
-        for(int i=left;i<=right;){
-            if(i%bs==0 && i+bs-1<=right){
-                sum+=blocks[i/bs];
-                i+=bs;
-            }
-            else{
-                sum+=num[i];
-                i++;
-            }
-        }
-        return sum;
+        return query(1,left,right,0,a.size()-1);
     }
 };
 
