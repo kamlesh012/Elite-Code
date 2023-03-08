@@ -11,16 +11,12 @@ bool predicate(vector<int> &a,ll h,ll k){
 }
     int minEatingSpeed(vector<int>& wt, int k) {
         ll n=wt.size();
-        ll l=1,h=accumulate(wt.begin(),wt.end(),0ll),ans=-1;
-        
-        while(l<=h){
+        ll l=0,h=accumulate(wt.begin(),wt.end(),0ll)+1;
+        while(h-l>1){
             ll mid=((h-l)/2)+l;
-            if(predicate(wt,k,mid)){
-                ans=mid;
-                h=mid-1;
-            }
-            else l=mid+1;
+            if(predicate(wt,k,mid))h=mid;
+            else l=mid;
         }
-        return ans;
+        return h;
     }
 };
