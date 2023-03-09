@@ -1,32 +1,23 @@
 class Solution {
 public:
+    //Binary Search on Answer
+    //Predicate Function
     bool predicate(vector<int>&b,int m,int k,int days){
         int mx=INT_MIN;
         int splits=0,n=b.size();
+        //splits will store the count no. of subarrays of length k in which the max value is smaller than or equal to days.
         for(int i=0;i<=n-k;){
             bool ok=false;
             int j=i;
-            // cout<<i<<" Start "<<j<<endl;
             for(;j<n && j-i<k;j++){
-                // cout<<" Inside:"<<i<<" "<<j<<endl;
-                // cout<<" Inside:"<<b[i]<<" "<<b[j]<<endl;
-                if(b[j]>days){
-                            // i=j+1;
-                            // ok=true;
-                            break;
-                }
+                if(b[j]>days)break;
             }
-            
-            // cout<<i<<" End "<<j<<endl;
             if(j-i==k){
                 i=j;
                 splits++;
             }
             else i=j+1;
-            // cout<<"Splits: "<<splits<<endl;
-            // if(!ok){i=j;splits++;}
         }
-        // cout<<splits<<endl;
         return splits>=m;
     }
     
@@ -38,7 +29,8 @@ public:
             if(predicate(b,m,k,mid))h=mid;
             else l=mid;
         }
-        if(h>=oh)h=-1;
+        //h==oh means that our h is not changed yet ,that means answer is not possible.
+        if(h==oh)h=-1;
         return h;
     }
 };
