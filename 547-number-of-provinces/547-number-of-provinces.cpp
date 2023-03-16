@@ -1,25 +1,44 @@
-class Solution {
-public:
-    void dfs(vector<vector<int>>& adjm,vector<int>& visited,int source){
-        visited[source]++;
-        for(int i=0;i<adjm.size();i++){
-            if(adjm[source][i] && !visited[i]){
-                dfs(adjm,visited,i);
-            }
+struct DSU {
+    vector<int> size, parent;
+    DSU(int n) {
+        parent.resize(n);
+        size.resize(n, 1);
+        iota(parent.begin(),parent.end(),0);
+    }
+    void join(int x, int y) {
+        int px = find_parent(x);
+        int py = find_parent(y);
+        if (px == py)return;
+        if (size[px] >= size[py]) {
+            size[px] += size[py];
+            parent[py] = px;
+        }
+        else {
+            size[py] += size[px];
+            parent[px] = py;
         }
     }
-    
-    int findCircleNum(vector<vector<int>>& isConnected) {
-        //DFS in a Adjacency Matrix.
-        int n=isConnected.size();
-        vector<int> visited(n+1,0);
-        int component=0;
-        for(int i=0;i<n;i++){
-            if(!visited[i]){
-                dfs(isConnected,visited,i);
-                component++;
+    int find_parent(int node) {
+        if (parent[node] == node)return node;
+        return parent[node]=find_parent(parent[node]);
+    }
+};
+class Solution {
+public:
+    int findCircleNum(vector<vector<int>>& graph) {
+        int n=graph.size();
+        DSU d(n+1);
+        set<int> components;
+        for(int i=0;i<graph.size();i++){
+            for(int j=0;j<graph[0].size();j++){
+                if(graph[i][j]){
+                    d.join(i+1,j+1);
+                }
             }
         }
-        return component;
+      for(int i=1;i<=n;i++){
+          components.insert(d.find_parent(i));
+      }
+    return components.size();
     }
 };
