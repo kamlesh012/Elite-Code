@@ -26,7 +26,7 @@ public:
                 return false;
             }
             else if(!(curr->children[word[i]-'a']))return false;
-            else curr=curr->children[word[i]-'a'];
+            curr=curr->children[word[i]-'a'];
         }
         return curr->isEnd;
     }
