@@ -3,10 +3,6 @@ class Trie {
     bool isEnd=false;
 public:
     Trie() {
-        for(int i=0;i<26;i++){
-            this->children[i]=NULL;
-        }
-        this->isEnd=false;
     }
     
     void insert(string word) {
@@ -49,7 +45,6 @@ public:
     }
     
     bool search(string word) {
-        
         return node->search(word,node);
     }
 };
