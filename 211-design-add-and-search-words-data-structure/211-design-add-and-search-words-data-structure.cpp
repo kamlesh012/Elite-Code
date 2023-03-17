@@ -19,17 +19,15 @@ public:
     }
     
     bool search(string word,Trie *curr) {
-        // if(word.size()==0)return curr->isEnd;
-        bool ans=false;
         for(int i=0;i<word.size();i++){
             if(word[i]=='.'){
                 for(char c='a';c<='z';c++){
                     if(curr->children[c-'a']!=NULL){
-                        ans=ans|search(word.substr(i+1),curr->children[c-'a']);
-                        if(ans)return ans;
+                        if(search(word.substr(i+1),curr->children[c-'a']))
+                            return true;
                     }
                 }
-                return ans;
+                return false;
             }
             else if(!(curr->children[word[i]-'a']))return false;
             else curr=curr->children[word[i]-'a'];
