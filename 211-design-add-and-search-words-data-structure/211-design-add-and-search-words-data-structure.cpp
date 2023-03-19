@@ -35,8 +35,8 @@ public:
         {
             if(!(node->containKey(word[i])))
             {
-                node->links[word[i]-'a']=new Node();
-                // node->put(word[i],new Node());
+                // node->links[word[i]-'a']=new Node();
+                node->put(word[i],new Node());
             }
             node= node->get(word[i]);
         }
