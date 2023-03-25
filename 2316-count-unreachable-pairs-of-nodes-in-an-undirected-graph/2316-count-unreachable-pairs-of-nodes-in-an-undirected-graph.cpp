@@ -32,7 +32,7 @@ public:
         for(auto i:edges){
             d.merge(i[0],i[1]);
         }
-        long long total=(n*1ll*(n-1))/2ll;
+        long long total=(n*1ll*(n-1))/2;
         set<int> parent;
         for(int i=0;i<n;i++){
             parent.insert(d.find_parent(i));
