@@ -7,8 +7,9 @@ public:
         
         int ans=0;
         while(i>=0){
-            if((1<<i)&right && (1<<i)&left)ans=ans|(1<<i);
-            else if((1<<i)&right || (1<<i)&left)break;
+            int curr=(1<<i);
+            if(curr&right && curr&left)ans=ans|curr;
+            else if(curr&right || curr&left)break;
             i--;
         }
         return ans;
