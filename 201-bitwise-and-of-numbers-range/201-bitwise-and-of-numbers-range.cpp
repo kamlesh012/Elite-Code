@@ -8,8 +8,8 @@ public:
         int ans=0;
         while(i>=0){
             int curr=(1<<i);
-            if(curr&right && curr&left)ans=ans|curr;
-            else if(curr&right || curr&left)break;
+            if((curr&right) && (curr&left))ans=ans|curr;
+            else if((curr&right) || (curr&left))break;
             i--;
         }
         return ans;
