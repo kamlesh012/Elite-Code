@@ -1,6 +1,5 @@
 class Solution {
 public:
-    // bool ispal(string &s,int )
     string longestPalindrome(string s) {
         int n=s.length(),mx=0,cnt=0;
         string ans;
@@ -8,6 +7,7 @@ public:
             int l=i-1,r=i+1,curr=1;
             if(s[i]==s[i+1])
             {
+                //Even Length Palidrome
                 int rr=r+1,currr=curr+1,ll=l;
                 while(ll>=0 && rr<=n && s[ll]==s[rr]){
                     ll--;
@@ -21,8 +21,8 @@ public:
                     }
                     mx=currr;
                 }
-                
             }
+            //Odd Length Palindrome.
             while(l>=0 && r<=n && s[l]==s[r]){
                 l--;
                 r++;
