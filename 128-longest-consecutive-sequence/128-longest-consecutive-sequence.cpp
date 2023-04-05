@@ -1,29 +1,29 @@
 class Solution {
 public:
     int longestConsecutive(vector<int>& nums) {
-        map<int,int> mp;
-        for(auto i:nums){
-            mp[i]++;
-        }
-        int last=INT_MIN;
-        int start=0,cnt=1,ans=0;
-        for(auto i:mp){
-            // cout<<i.first<<" - "<<endl;
-            if(start){
-                if(i.first-last==1){
-                    cnt++;
-                    // cout<<i.first<<" "<<last<<endl;
+       //O(n)-Striver's Solution.
+        
+        //The Main Key Observation is that for each element we check if it is the
+        //start of a consecutive sequence or not.
+        //if not continue.
+        //if yes iterate till the end of the sequence to get the length.
+        //this saves us from unnecessary iterations as well.
+        
+        // Check if an element is the starting point of a consecutive sequence or not.
+        unordered_set<int> st(nums.begin(),nums.end());
+        int longest=0;
+        for(auto i:st){
+            int prev=i-1,curr=1;
+            if(st.find(prev)==st.end()){
+                int j=1;
+                while(st.find(i+j)!=st.end()){
+                    j++;
+                    curr++;
                 }
-                else cnt=1;
-               
-                    last=i.first;
+                longest=max(longest,curr);
             }
-            else {
-                last=i.first;
-                  start++;
-            }
-             ans=max(ans,cnt);
         }
-        return ans;
+        return longest;
+        
     }
 };
