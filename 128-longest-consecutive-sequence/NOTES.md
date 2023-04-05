@@ -1,1 +1,1 @@
-​
+Check if an element is the starting point of a consecutive sequence or not.
