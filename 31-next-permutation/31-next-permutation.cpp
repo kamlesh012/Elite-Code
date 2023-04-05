@@ -19,15 +19,20 @@ public:
         
         if(i>=0){
             int mn=INT_MAX,ind=-1,x=i;
+            
+            x=n-1;
+            while(x>i && nums[x]<=nums[i])x--;
+            ind=x;
+            
             // cout<<mn<<" "<<nums[x]<<endl;
-            for(x=i;x<n;x++){
-                // cout<<nums[x]<<" "<<mn<<" "<<x<<endl;
-                if(nums[x]>nums[i]){
-                    if(nums[x]<mn){
-                        mn=nums[x];
-                               ind=x;}
-                              }
-            }
+            // for(x=i;x<n;x++){
+            //     // cout<<nums[x]<<" "<<mn<<" "<<x<<endl;
+            //     if(nums[x]>nums[i]){
+            //         if(nums[x]<mn){
+            //             mn=nums[x];
+            //                    ind=x;}
+            //                   }
+            // }
             // cout<<nums[i]<<" "<<nums[ind]<<endl;
             // cout<<mn<<" "<<nums[x]<<" "<<x<<endl;
             swap(nums[i],nums[ind]);
