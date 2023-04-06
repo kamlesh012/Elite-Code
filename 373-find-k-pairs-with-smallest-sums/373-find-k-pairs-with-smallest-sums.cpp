@@ -2,7 +2,8 @@ class Solution {
 public:
     vector<vector<int>> kSmallestPairs(vector<int>& nums1, vector<int>& nums2, int k) {
         //Saw a comment in most Voted C++ Solution. on Discuss.
-        
+        //Link for the post:
+        //https://leetcode.com/problems/find-k-pairs-with-smallest-sums/discuss/596658/C%2B%2B-solution-with-diagram-explaination-for-beginners
         priority_queue<pair<int,pair<int,int>>> q;
         int n=nums1.size(),m=nums2.size();
         
@@ -26,6 +27,5 @@ public:
             q.pop();
         }
         return ans;
-        
     }
 };
