@@ -36,7 +36,7 @@ public:
         
         
         //Tabulation 
-        vector<vector<long long>>dp(words[0].size()+1,vector<long long>(target.size()+1,0ll));
+        vector<vector<int>>dp(words[0].size()+1,vector<int>(target.size()+1,0ll));
         
         for(int i=0;i<=n;i++){
             for(int j=0;j<=target.size();j++){
@@ -44,7 +44,7 @@ public:
                 else if(i==0)dp[i][j]=0;
                 else{
                     long long pick=0ll,notpick=0ll;
-                    pick=((freq[i-1][target[j-1]-'a']%mod)*(dp[i-1][j-1]%mod))%mod;
+                    pick=((freq[i-1][target[j-1]-'a']%mod)*((dp[i-1][j-1]*1ll)%mod))%mod;
                     notpick=dp[i-1][j];
                     dp[i][j]=(pick+notpick)%mod;
                 }
