@@ -14,8 +14,10 @@ public:
     int ans=0;
     
     pair<int,int> path(TreeNode*root){
-        
-        if(root && (root->left || root->right)){
+        if(!root){
+            return pair<int,int>{-1,-1};
+        }
+        else if(root->left || root->right){
             
             auto l=path(root->left);
             auto r=path(root->right);
@@ -25,9 +27,6 @@ public:
             ans=max({ans,left_ans,right_ans});
             
             return pair<int,int>{left_ans,right_ans};
-        }
-        else if(!root){
-            return pair<int,int>{-1,-1};
         }
         else {
             return pair<int,int>{0,0};
