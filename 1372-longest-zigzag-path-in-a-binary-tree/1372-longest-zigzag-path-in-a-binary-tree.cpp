@@ -14,20 +14,17 @@ public:
     int ans=0;
     
     pair<int,int> path(TreeNode*root){
+        
         if(root && (root->left || root->right)){
+            
             auto l=path(root->left);
             auto r=path(root->right);
             
-            // pair<int,int> ans={0,0};
+            int left_ans=l.second+1,right_ans=r.first+1;
             
-            int lans=l.second+1,rans=r.first+1;
-            // cout<<l.first<<" "<<l.second<<endl;
-            // cout<<r.first<<" "<<r.second<<endl;
-            // ans=max(ans,(l.second)+1);
-            // ans=max(ans,(r.first)+1);
-            ans=max(ans,lans);
-            ans=max(ans,rans);
-            return pair<int,int>{l.second+1,r.first+1};
+            ans=max({ans,left_ans,right_ans});
+            
+            return pair<int,int>{left_ans,right_ans};
         }
         else if(!root){
             return pair<int,int>{-1,-1};
