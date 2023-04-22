@@ -37,6 +37,7 @@ public:
                 // cout<<nodes_at_curr_level<<endl;
                 
                 //so to avoid overflow we are using the above method.
+                
                 if(first==-1)first=it.second;
                 last=it.second;
                 int dist=it.second-reduce_node_value;
@@ -46,12 +47,17 @@ public:
                 if(it.first->right){
                     q.push({it.first->right,(2ll*dist+2)});
                 } 
+                //ll is used above because the values can still get larger than int size even though the difference will
+                //always be in range of int. this is written in problem statement.
             }
             ans=max(ans,last-first+1);
         }
         return ans;
         
+        //check this for clear explanation:
+        // https://leetcode.com/problems/maximum-width-of-binary-tree/discuss/3436593/Image-Explanation-Why-long-to-int-C%2B%2BJavaPython
         //TLEd Simulation:
+        
         // while(q.size()){
         //     int n=q.size();
         //     int flag=0,first=-1,last=0;
