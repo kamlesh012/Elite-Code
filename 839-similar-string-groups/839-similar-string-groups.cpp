@@ -47,13 +47,14 @@ public:
         for(int i=0;i<strs.size();i++){
             if(st.find(strs[i])==st.end()){
                 st.insert({strs[i]});
-                mp[strs[i]]=cnt++;
+                // mp[strs[i]]=cnt++;
                 // mp[strs[i]]=i+1;
             }
             // if(mp.find(strs[i])==mp.end())
         }
         
-        int n=st.size();
+        // int n=st.size();
+        int n=strs.size();
         DSU d(n+1);
         // for(int i=0;i<=n;i++){
         //     cout<<d.parent[i]<<" ";
@@ -61,7 +62,7 @@ public:
         // cout<<endl;
         auto it=st.begin();
         int sz=strs[0].length();
-        /*
+        // /*
         for(int i=0;i<strs.size();i++){
             for(int j=i+1;j<strs.size();j++){
                 int diff=0;
@@ -72,8 +73,8 @@ public:
                 if(diff<=2)d._union(i+1,j+1);
             }
         }
-        */
-        // /*
+        // */
+        /*
         while(it!=st.end()){
             // bool skip=false;
             string s=*it;
@@ -102,7 +103,7 @@ public:
             // if(!skip)it++;
             it++;
         }
-        // */
+        */
         // for(int i=0;i<=n;i++){
         //     cout<<d.parent[i]<<" ";
         // }
