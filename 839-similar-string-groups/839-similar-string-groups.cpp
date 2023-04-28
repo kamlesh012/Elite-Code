@@ -40,14 +40,9 @@ struct DSU{
 class Solution {
 public:
     
-    unordered_set<string> st;
-    unordered_map<string,int> mp;
-    // set<string> unique;
     int numSimilarGroups(vector<string>& strs) {
-        // multiset<string> st;
-        // set<string> st;
-        // int n=unique.size();
-        // int n=strs.size();
+        unordered_set<string> st;
+        unordered_map<string,int> mp;
         int cnt=1;
         for(int i=0;i<strs.size();i++){
             if(st.find(strs[i])==st.end()){
