@@ -63,6 +63,8 @@ public:
         auto it=st.begin();
         int sz=strs[0].length();
         // /*
+        
+        //Editorialist's Solution
         for(int i=0;i<strs.size();i++){
             for(int j=i+1;j<strs.size();j++){
                 int diff=0;
@@ -75,6 +77,7 @@ public:
         }
         // */
         /*
+        //MY Working Solution.
         while(it!=st.end()){
             // bool skip=false;
             string s=*it;
