@@ -12,7 +12,7 @@ public:
     int minimumCost(vector<int>& start, vector<int>& target, vector<vector<int>>& sr) {
         
         //Filter roads that are costlier than their manhattan distance.
-        //Filtering will reduce time complexity only,not to much.
+        //Filtering will reduce time complexity only,not do much.
         //The algorightm will still work without filtering
         //because Dijsktra's algo will automatically put that road at last.
         vector<vector<int>> filtered_roads;
