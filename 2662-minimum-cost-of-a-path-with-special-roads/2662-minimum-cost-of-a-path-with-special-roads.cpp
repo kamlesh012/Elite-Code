@@ -24,12 +24,14 @@ public:
         
         //Min-heap is ideal for this situation.
         //I am using a set as min heap.
-        //the min heap will store (distance of current road from start,(x axis of)-end of current road,(y axis of)-end of current road);
         
         //Storing end coordinates of each special road only.
-        //Doesn't need starting coordinates in pq.
+        //Doesn't need starting coordinates in set/priority queue.
         
         //The same could have been done using starting coordinates but would have been complex.
+        //The min heap will store a vector that contains three values each which represent (distance of current road from start,(x coordinate of)-end of current road,(y coordinate of)-end of current road);
+        
+        
         
         set<vector<int>> pq;
         pq.insert({0,start[0],start[1]});
