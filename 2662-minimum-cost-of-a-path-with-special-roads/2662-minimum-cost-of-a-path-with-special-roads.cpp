@@ -11,12 +11,12 @@ public:
         // mp[{target[0],target[1]}]=0;
         vector<vector<int>> filtered_roads;
         for(auto i:sr){
-            int c=cost(i[0],i[1],i[2],i[3]);
+            // int c=cost(i[0],i[1],i[2],i[3]);
             // cout<<c<<" "<<i[4]<<endl;
-            if(cost(i[0],i[1],i[2],i[3])>i[4]){
+            // if(cost(i[0],i[1],i[2],i[3])>i[4]){
                 filtered_roads.push_back(i);
                 // cout<<i[0]<<" "<<i[1]<<" "<<i[2]<<" "<<i[3]<<endl;
-            }
+            // }
         }
         
         set<vector<int>> pq;
