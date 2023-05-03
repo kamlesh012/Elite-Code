@@ -10,6 +10,7 @@ public:
         // mp[{start[0],start[1]}]=0;
         // mp[{target[0],target[1]}]=0;
         vector<vector<int>> filtered_roads;
+        //Filter roads that are costlier than their manhattan distance.
         for(auto i:sr){
             // int c=cost(i[0],i[1],i[2],i[3]);
             // cout<<c<<" "<<i[4]<<endl;
