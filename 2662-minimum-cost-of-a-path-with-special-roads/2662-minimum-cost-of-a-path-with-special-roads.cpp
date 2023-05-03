@@ -9,16 +9,19 @@ public:
         
         // mp[{start[0],start[1]}]=0;
         // mp[{target[0],target[1]}]=0;
-        vector<vector<int>> filtered_roads;
+        // vector<vector<int>> filtered_roads;
         //Filter roads that are costlier than their manhattan distance.
-        for(auto i:sr){
+        //Filtering will only reduce time complexity
+        //THe algorightm will still work without filtering
+        //because Dijsktra's algo will automatically put that road at last.
+        // for(auto i:sr){
             // int c=cost(i[0],i[1],i[2],i[3]);
             // cout<<c<<" "<<i[4]<<endl;
             // if(cost(i[0],i[1],i[2],i[3])>i[4]){
-                filtered_roads.push_back(i);
+                // filtered_roads.push_back(i);
                 // cout<<i[0]<<" "<<i[1]<<" "<<i[2]<<" "<<i[3]<<endl;
             // }
-        }
+        // }
         
         set<vector<int>> pq;
         pq.insert({0,start[0],start[1]});
@@ -34,7 +37,8 @@ public:
             long long cost_to_target=cost_from_start+cost(x,y,target[0],target[1]);
             ans=min(ans,cost_to_target);
             
-            for(auto i:filtered_roads){
+            // for(auto i:filtered_roads){
+            for(auto i:sr){
                 int node_cost=cost(i[0],i[1],x,y)+i[4];
                 if(!dist.count({i[2],i[3]}) || dist[{i[2],i[3]}]>node_cost+cost_from_start){
                     dist[{i[2],i[3]}]=node_cost+cost_from_start;
