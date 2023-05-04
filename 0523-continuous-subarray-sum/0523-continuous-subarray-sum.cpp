@@ -6,8 +6,10 @@ public:
             nums[i]+=nums[i-1];
         }
         
+        //Editorialist's Better Approach.
+        
+        //hashmap<sum%k,index>
         unordered_map<int,int> mp;
-        //hashmap<sum,index>
         for(int i=0;i<n;i++){
             if(i>0 && nums[i]%k==0)return true;
             else if(mp.count(nums[i]%k)==0){
@@ -16,6 +18,7 @@ public:
             else if(mp[nums[i]%k]<i-1)return true;
         }
         return false;
+        
         /*
 //         MY Approach: check %k till current index but don't add previos index.
 
