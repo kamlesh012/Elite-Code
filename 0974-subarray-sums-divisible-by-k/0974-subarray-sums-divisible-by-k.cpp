@@ -9,9 +9,9 @@ public:
         int ans=0;
         mp[0]=1;
         for(int i=0;i<n;i++){
-            sum+=(nums[i]);
+            sum=(sum%k+(nums[i]%k))%k;
             //Need to do +k to calculate remainders of negative numbers.
-            ans+=mp[(sum%k+k)%k]++;
+            ans+=mp[(sum+k)%k]++;
             // sum=sum%k;
             // mp[(sum%k+k)%k]++;
         }
