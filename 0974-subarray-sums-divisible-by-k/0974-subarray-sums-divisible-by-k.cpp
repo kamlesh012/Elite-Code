@@ -4,14 +4,18 @@ public:
         int n=nums.size();
         map<int,int> mp;
         int sum=0;
-        //I was doing mistake in Modulo Arithmetic.
         
+        //I was doing mistake in Modulo Arithmetic.
         int ans=0;
         
-        mp[0]=1;//edge case to count complete subarray till this index.
+        //either this below.
+        // mp[0]=1;//edge case to count complete subarray till this index.
         
         for(int i=0;i<n;i++){
             sum=(sum%k+(nums[i]%k))%k;
+            
+            //or this below.
+            if(sum%k==0)ans++;
             //Need to do +k to calculate remainders of negative numbers.
             ans+=mp[(sum+k)%k];
             mp[(sum+k)%k]++;
