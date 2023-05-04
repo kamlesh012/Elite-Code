@@ -7,13 +7,14 @@ public:
         //I was doing mistake in Modulo Arithmetic.
         
         int ans=0;
-        mp[0]=1;
+        
+        mp[0]=1;//edge case to count complete subarray till this index.
+        
         for(int i=0;i<n;i++){
             sum=(sum%k+(nums[i]%k))%k;
             //Need to do +k to calculate remainders of negative numbers.
-            ans+=mp[(sum+k)%k]++;
-            // sum=sum%k;
-            // mp[(sum%k+k)%k]++;
+            ans+=mp[(sum+k)%k];
+            mp[(sum+k)%k]++;
         }
         
    //Bad Implementation     
