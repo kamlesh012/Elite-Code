@@ -22,16 +22,20 @@ public:
             if(nums[l]+nums[r]<=target){
                 
                 int len=r-l;
+                
                 //Method 1: 
+                //Left Shifting.
                 // temp=(1ll<<(r-l))%mod;
-                // Wrong Answer
+                // Wrong Answer.
+                //Can't do more than 63 left shifts.
+                //modulo is also not  taken carefully.
                 
                 
                 //Method 2: 
                 // for(int x=l;x<r;x++){
                 //     temp=((temp%mod)*(2%mod))%mod;
                 // }
-                // Time Limit Exceeded
+                // Time Limit Exceeded.//might go O(n) in worst case.
                 
                 //Method 3:
                 temp=moduloexpo(2,len,mod);
