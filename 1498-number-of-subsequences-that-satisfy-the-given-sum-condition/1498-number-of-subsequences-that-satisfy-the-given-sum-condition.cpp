@@ -1,5 +1,5 @@
 #define mod 1000000007
-long long expo(int a, int b, int m) {
+long long moduloexpo(int a, int b, int m) {
     long long ta=a,tb=b;
     long long res = 1ll; 
          while (tb > 0) {
@@ -18,14 +18,25 @@ public:
         int ans=0;
         int l=0,r=nums.size()-1;
         while(l<=r){
-            int temp=1;
+            long long temp=1ll;
             if(nums[l]+nums[r]<=target){
+                
                 int len=r-l;
-                temp=expo(2,len,mod);
+                //Method 1: 
+                // temp=(1ll<<(r-l))%mod;
+                // Wrong Answer
+                
+                
+                //Method 2: 
                 // for(int x=l;x<r;x++){
                 //     temp=((temp%mod)*(2%mod))%mod;
                 // }
-                // temp=(1<<(r-l))%mod;
+                // Time Limit Exceeded
+                
+                //Method 3:
+                temp=moduloexpo(2,len,mod);
+                //Accepted
+                
                 ans=(ans%mod+temp%mod)%mod;
                 l++;
             }
