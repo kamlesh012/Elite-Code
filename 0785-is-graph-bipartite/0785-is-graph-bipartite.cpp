@@ -19,7 +19,6 @@ public:
                 
                 q.push(i);
                 colour[i]=0;
-                
                 while(q.size()){
                     auto it=q.front();
                     q.pop();
@@ -31,7 +30,6 @@ public:
                         }
                     }
                 }
-                
             }
         }
         
