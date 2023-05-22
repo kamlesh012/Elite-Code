@@ -12,7 +12,6 @@ public:
             }
             else{
                 int current=i;
-                
                 //Keep matching with previous elements as well.
                 //Understood from Chandan Agarwal's SOlution.
                 while(stk.size() && __gcd(stk.top(),current)>1){
@@ -22,6 +21,7 @@ public:
                 stk.push(current);
             }
         }
+        
         vector<int> ans;
         while(stk.size()){
             ans.push_back(stk.top());
@@ -31,4 +31,5 @@ public:
         
         return ans;
     }
+//     https://leetcode.com/problems/replace-non-coprime-numbers-in-array/discuss/1823603/C%2B%2B-or-Stack-or-Time-Complexity-NlogD
 };
