@@ -9,7 +9,7 @@ public:
     }
     
     int minStartValue(vector<int>& nums) {
-        int l=0,h=1e9;
+        int l=0,h=1e5;
         while(h-l>1){
             int mid=(h-l)/2+l;
             if(predicate(nums,mid)){
