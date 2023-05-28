@@ -3,7 +3,6 @@ public:
     int calculateMinimumHP(vector<vector<int>>& a) {
         int n=a.size(),m=a[0].size();
         int dp[201][201];
-        // vector<vector<int>> dp(n+1,vector<int>(m+1,0));
         for(int i=n-1;i>=0;--i){
             for(int j=m-1;j>=0;--j){
                 if(i==n-1 && j==m-1){
