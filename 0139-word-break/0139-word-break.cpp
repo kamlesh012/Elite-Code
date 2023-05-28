@@ -10,7 +10,7 @@ public:
             string temp;
             for(int j=i;j<n;j++){
                 temp.push_back(s[j]);
-                dp[i]=dp[i] | (mp.count(temp) && dp[j+1]);
+                dp[i]|=(mp.count(temp) && dp[j+1]);
             }
         }
         return dp[0];
