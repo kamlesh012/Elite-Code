@@ -4,7 +4,7 @@ public:
         int n=s.length();
         unordered_map<string,int> mp;
         for(auto i:dict)mp[i];
-        vector<int> dp(301,0);
+        vector<int> dp(n+1,0);
         dp[n]=1;
         for(int i=n-1;i>=0;--i){
             string temp;
