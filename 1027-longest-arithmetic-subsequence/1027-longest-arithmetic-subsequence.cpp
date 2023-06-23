@@ -1,13 +1,18 @@
 class Solution {
 public:
     int longestArithSeqLength(vector<int>& nums) {
+        int n=nums.size(),ans=0;
+        
+        //This way of defining state is TLEing.
          //dp[i][j] represents the length of the longest subsequence ending at index i,having common difference (nums[i]-nums[j]).
         
-        int n=nums.size(),ans=0;
         //All three declaration resulting in TLE
         // unordered_map<int,unordered_map<int,int>> dp;
         // vector<unordered_map<int,int>> dp(n+1);
         // unordered_map<int,int> dp[1001];
+        
+        
+        //So Now, dp[i][j] represents the length of the longest subsequence having common difference (nums[i]-nums[j]) and ending at index i.
         
         unordered_map<int,vector<int>> dp;
         for(int end=0;end<n;end++){
