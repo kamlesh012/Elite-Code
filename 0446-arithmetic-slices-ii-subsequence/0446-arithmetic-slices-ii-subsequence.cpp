@@ -4,7 +4,7 @@ public:
         //Dry Run on Both Sample TCs more than enough to get the idea.What I am doing.
     int numberOfArithmeticSlices(vector<int>& nums) {
       int n=nums.size(),ans=0;
-        unordered_map<long long,unordered_map<long long,long long>> dp;
+        vector<unordered_map<long long,long long>> dp(n+1);
         for(int i=1;i<n;i++){
             for(int j=0;j<i;j++){
                 
