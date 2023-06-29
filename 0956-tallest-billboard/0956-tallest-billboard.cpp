@@ -3,6 +3,8 @@ public:
      int dp[20][10001];
     
      int tallestBillboard(vector<int>& rods) {
+         //Inspired by // https://leetcode.com/submissions/detail/978795290/
+         
         int n=rods.size();
          //First way is to store the sum of all rods taken.
     //dp[i][j] stores the sum of rods,upto i rods if j is the difference b/w two sets whose sum is stored in dp[i][j];
