@@ -14,11 +14,12 @@ public:
         vector<double> dist(n+1,1);//setting as 1 because 1 is the max dist possible. b/w 0 & 1.you can take it as infinity also.
         
         priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>> pq;
-        //Pushing 1 to priorityqueue as (-1) is the minimum distance possible b/w -1 & 0.
+        //Pushing -1 to priority queue as -1 is the minimum distance possible b/w -1 & 0.
         //since start node will have min distance with itself,
-        //so dist[start]=-1;     will be considering 1 as (-1) down below.
-        pq.push({1,start});
-        dist[start]=1;
+        //so dist[start]=-1;     
+        
+        pq.push({-1,start});
+        dist[start]=-1;
         
         while(pq.size()){
             
@@ -40,6 +41,10 @@ public:
                 
             }
        } 
+        // for(auto i:dist){
+        //     cout<<i<<" ";
+        // }
+        // cout<<endl;
         if(dist[end]==1)return 0;
         return -1*dist[end];
     }
