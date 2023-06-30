@@ -1,6 +1,8 @@
 class Solution {
 public:
     int longestIncreasingPath(vector<vector<int>>& matrix) {
+        //Brute Force DFS+Cache.
+        
         int n=matrix.size(),m=matrix[0].size();
         vector<vector<int>> vis(n,vector<int>(m,0));
         int ans=0;
