@@ -1,6 +1,8 @@
 class Solution {
 public:
     int maximalSquare(vector<vector<char>>& mat) {
+        //WEll can it be done using 2D-Prefix Sum?
+        // Try to implement when free,now I'm short on time.
         int n=mat.size(),m=mat[0].size();
         vector<vector<int>> dp(n,vector<int>(m,0));
         int ans=0;
