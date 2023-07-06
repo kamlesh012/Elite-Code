@@ -13,11 +13,11 @@ public:
         stack<int> stk;
         function<int(vector <int>)> histogram=[&](vector<int> base){
             vector<int> prev(m,-1),next(m,m);
-            cout<<"Base in func :"<<endl;
-             for(auto i:base){
-                cout<<i<<" ";
-            }
-            cout<<endl;
+            // cout<<"Base in func :"<<endl;
+            //  for(auto i:base){
+            //     cout<<i<<" ";
+            // }
+            // cout<<endl;
             
             //finding next smaller element
             for(int i=m-1;i>=0;--i){
@@ -37,17 +37,17 @@ public:
             }
             while(stk.size())stk.pop();
             
-            cout<<"Next :"<<endl;
-            for(auto i:next){
-                cout<<i<<" ";
-            }
-            cout<<endl;
+//             cout<<"Next :"<<endl;
+//             for(auto i:next){
+//                 cout<<i<<" ";
+//             }
+//             cout<<endl;
             
-            cout<<"Prev :"<<endl;
-            for(auto i:prev){
-                cout<<i<<" ";
-            }
-            cout<<endl;
+//             cout<<"Prev :"<<endl;
+//             for(auto i:prev){
+//                 cout<<i<<" ";
+//             }
+//             cout<<endl;
             
             int area=0;
             for(int i=0;i<m;i++){
