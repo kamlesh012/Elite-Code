@@ -51,7 +51,7 @@ public:
             
             int area=0;
             for(int i=0;i<m;i++){
-                area=max(area,(next[i]-(prev[i]+1))*base[i]);
+                area=max(area,(next[i]-prev[i]-1)*base[i]);
             }
             // cout<<"AREA "<<area<<endl;
             return area;
