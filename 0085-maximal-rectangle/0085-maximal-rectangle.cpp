@@ -66,8 +66,8 @@ public:
                 //else increase the height of reactangle by one.
                 else base[i]+=1;
             }
-            //Here in This Portion we are using already calculated heights 
-            //from above row for current row. 
+            //Here in above Portion we are using already calculated heights 
+            //from previous(above) row for current row. 
             //hence it's DP as well.
             
             // cout<<"Base :"<<endl;
