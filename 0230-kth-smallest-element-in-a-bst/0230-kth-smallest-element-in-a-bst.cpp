@@ -11,17 +11,26 @@
  */
 class Solution {
 public:
-    int kthSmallest(TreeNode* root, int k) {
-        vector<int> traversed;
-        
-        function<void(TreeNode*)> in=[&](TreeNode *root){
+    int ans,xk;
+    void in(TreeNode *root,int &count){
             if(root){
-                in(root->left);
-                traversed.push_back(root->val);
-                in(root->right);
+                in(root->left,count);
+                
+                count++;
+                
+                if(count==xk){
+                    ans=root->val;
+                }
+                
+                in(root->right,count);   
             }
-        };
-        in(root);
-        return traversed[k-1];
+        }
+    
+    int kthSmallest(TreeNode* root, int k) {
+        int count=0;
+        xk=k;
+        // function<void(TreeNode*,int)> in=[&]
+        in(root,count);
+        return ans;
     }
 };
