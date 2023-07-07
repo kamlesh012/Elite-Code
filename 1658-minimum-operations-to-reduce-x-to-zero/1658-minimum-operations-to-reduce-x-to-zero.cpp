@@ -14,7 +14,6 @@ public:
         r++;
         
         int len=INT_MAX;
-        
         //both conditions are equal to n as a case where l will cover the whole array is taken into consideration.
         
         while(l<=r && r<=n){
@@ -39,7 +38,6 @@ public:
             //this is kept outside the if condition so that r can become n+1 & l can cover the whole array as well.(corner case)
             r++;
         }
-        
         return len==INT_MAX?-1:len;
     }
 };
