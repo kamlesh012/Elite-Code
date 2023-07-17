@@ -12,7 +12,7 @@ public:
         // to save time on finding newer susbtring efficiently.
         
         int n=word.size();
-        set<string> st;
+        unordered_set<string> st;
         
         for(auto &i:frbdn){
             reverse(i.begin(),i.end());
