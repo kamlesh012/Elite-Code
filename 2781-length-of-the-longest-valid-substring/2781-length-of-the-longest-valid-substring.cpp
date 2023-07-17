@@ -1,6 +1,16 @@
 class Solution {
 public:
     int longestValidSubstring(string word, vector<string>& frbdn) {
+        //Thanks Mukul Rawat for explaining.
+        //Otherwise it would've taken me a lot of time to do this problem on my own.
+        //So basically the main observation is that the max size of any forbidden string is 10.
+        //so we can use variable sized sliding window where we will check from right pointer to
+        //left pointer whether any substring is present in set or not.
+        //since the max invalid string can be of size 10 ,so we will check for a string of 10 length atmost.
+        //will keep updating the answer.
+        //since the traversal is from right to left we reversed all the forbidden strings as well
+        // to save time on finding newer susbtring efficiently.
+        
         int n=word.size();
         set<string> st;
         
