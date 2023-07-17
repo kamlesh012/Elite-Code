@@ -44,18 +44,11 @@ public:
                 if(!cnt)return 0;
                 else return (int)(1e9-1);
             }
-            // else if(start>=n && cnt)return (int)10000-1;
-            
             int &ans=dp[start][cnt];
-            // cout<<"ans "<<ans<<endl;
             if(ans==-1){
                 ans=1e9-1;
                 for(int end=start;end<n;end++){
-                    int current_ans=1e9-1;
-                    // cout<<start<<" - "<<end<<endl;
-                    if(cnt)current_ans=check(start,end)+rec(end+1,cnt-1);
-                    // cout<<"curr ans "<<current_ans<<endl;
-                    ans=min(ans,current_ans);
+                    if(cnt)ans=min(ans,check(start,end)+rec(end+1,cnt-1));
                 }
             }
             return ans;
