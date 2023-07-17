@@ -9,7 +9,7 @@ public:
             return cnt;
         };
         /*
-        //My Solution.
+        //My Solution.(Three STates)
         vector<vector<vector<int>>> dp(101,vector<vector<int>>(101,vector<int>(101,-1)));
         
         function<int(int,int,int)> rec=[&](int start,int end,int cnt){
@@ -32,6 +32,7 @@ public:
         };
         return rec(0,0,k);
         */
+        //Best Solution :State Reduced (Two States)
         
         //States can be reduced by taking few points in consideration.
         //current end will always be one index before the next start.
@@ -44,6 +45,7 @@ public:
                 if(!cnt)return 0;
                 else return (int)(1e9-1);
             }
+            
             int &ans=dp[start][cnt];
             if(ans==-1){
                 ans=1e9-1;
