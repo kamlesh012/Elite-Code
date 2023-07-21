@@ -12,9 +12,21 @@ class node{
 };
 
 //Global Head & Tail Pointers
+//head and tail are dummy nodes use to ease the implementation
 node *head=new node(0,0);
 node *tail=new node(0,0);
 
+//Working:
+//head->X->Y...->Z->tail
+//New nodes are added after head.
+//that means a node that is closer to head is more recent than the one that is closer to tail.
+//to remove LRU node we will remove the least recent node that is just before tail.
+
+//map stores key with node pointer. IT stores where in our linked list the node with the given key exists.
+//storing the pointer to the key will save time required to traverse the list.
+//this is the main concept. that takes this algorithm from O(n) to O(1).
+
+//Base one Striver's Solution Using Self Created Doubly Linked List
 class LRUCache {
     int n;
     unordered_map<int,node*> mp;
@@ -56,125 +68,12 @@ public:
         else{
             node *curr=mp[key];
             curr->val=value;
-            
             del(curr);
             add(curr);
         }
         
     }
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//Striver's Solution Using Self Created Doubly Linked List
-/*
-class LRUCache {
-public:
-class node
-{
-  public:
-  int key;
-  int val;
-  node* next;
-  node* prev;
-  node(int _key,int _val)
-  {
-    key = _key;
-    val = _val;
-  }
-};
-node* head = new node(-1,-1);
-node* tail = new node(-1,-1);
-
-int size;
-unordered_map<int,node*>mpp;
-    LRUCache(int capacity) {
-       size = capacity; 
-       head->next = tail;
-       tail->prev = head;  
-    }
-
-    void addNode(node* newNode){
-       
-       node* temp = head->next;
-       newNode->next = temp;
-       newNode->prev = head;
-       head->next = newNode;
-       temp->prev = newNode;
-    }
-
-    void deleteNode(node* delNode){
-         
-       node* delprev = delNode->prev;
-       node* delnext = delNode->next;
-       delprev->next = delnext;
-       delnext->prev = delprev;
-    }
-    
-    int get(int _key) {
-        
-        if(mpp.count(_key))
-        {
-          node* nde = mpp[_key];
-          int curr = nde->val;
-          mpp.erase(_key);
-          deleteNode(nde);
-          addNode(nde);
-          mpp[_key] = head->next;
-          return curr;
-        }
-        return -1;
-    }
-    
-    void put(int _key, int value) {
-        
-        if(mpp.count(_key))
-        {
-           node* nde = mpp[_key];
-           mpp.erase(_key);
-           deleteNode(nde);
-        }
-        if(mpp.size()==size)
-        {
-           mpp.erase(tail->prev->key);
-           deleteNode(tail->prev);
-        }
-        addNode(new node(_key,value));
-        mpp[_key] = head->next;
-    }
-};
-*/
 //A concise solution using C++ STL
  /*
 
