@@ -1,3 +1,102 @@
+//Custom Doubly Linked List Node CLass
+class node{
+    public:
+    int val;
+    int key;
+    node* next;
+    node *prev;
+    node(int key,int val){
+        this->key=key;
+        this->val=val;
+    }
+};
+
+//Global Head & Tail Pointers
+node *head=new node(0,0);
+node *tail=new node(0,0);
+
+class LRUCache {
+    int n;
+    unordered_map<int,node*> mp;
+public:
+     LRUCache(int capacity) {
+        n = capacity;   
+         head->next=tail;
+         tail->prev=head;
+    }
+    void add(node *newnode){
+        newnode->next=head->next;
+        head->next->prev=newnode;
+        head->next=newnode;
+        newnode->prev=head;
+    }
+    void del(node *newnode){
+        newnode->prev->next=newnode->next;
+        newnode->next->prev=newnode->prev;
+    }
+    
+    int get(int key) {
+        if(mp.find(key)==mp.end())return -1;
+        node *curr=mp[key];
+        del(curr);
+        add(curr);
+        return curr->val;
+    }
+    
+    void put(int key, int value) {
+        if(mp.find(key)==mp.end()){
+            if(mp.size()==n){
+                mp.erase(tail->prev->key);
+                del(tail->prev);
+            }
+            node *curr=new node(key,value);
+            add(curr);
+            mp[key]=curr;
+        }
+        else{
+            node *curr=mp[key];
+            curr->val=value;
+            
+            del(curr);
+            add(curr);
+        }
+        
+    }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Striver's Solution Using Self Created Doubly Linked List
 /*
 class LRUCache {
@@ -77,7 +176,7 @@ unordered_map<int,node*>mpp;
 };
 */
 //A concise solution using C++ STL
-// /*
+ /*
 
 class LRUCache {
     int capacity;
@@ -109,5 +208,4 @@ public:
         um[key] = li.begin();
     }
 };
-
-// */
+ */
