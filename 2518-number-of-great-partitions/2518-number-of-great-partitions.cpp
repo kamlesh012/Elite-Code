@@ -9,23 +9,26 @@ public:
         //Filtering Out Invalid Subsets.
         
         unordered_map<int,unordered_map<int,int>> dp;
-        // vector<vector<int>> dp(n+2,vector<int>(k+2,-1));
+        // vector<vector<int>> dp(n+10,vector<int>(k+10,-1));
         function<int(int,int)> rec=[&](int i,int curr){
-            if(curr>k)return 0;
+            if(curr>=k)return 0;
             if(i==a.size()){
                 if(curr<k)return 1;
                 return 0;
             }
             if(!dp[i].count(curr))
-            // if(dp[i][curr]==-1);
+            // int &ans=dp[i][curr];
+            // if(ans==-1);
             {
                 int pick=0,notpick=0;
                 int add=(curr+a[i])%mod;
                 pick=rec(i+1,add);
                 notpick=rec(i+1,curr);
                 dp[i][curr]=((pick%mod)+(notpick%mod))%mod;
+                // ans=((pick%mod)+(notpick%mod))%mod;
             }
-            return dp[i][curr];
+            // return ans;
+             return dp[i][curr];
         };
         
         int notValid=rec(0,0);  //calculated the subsets with sum<k.
