@@ -6,9 +6,7 @@ public:
         int ans=1;
         for(int i=1;i<n;i++){
             int prev1=a[i-1],prev2=b[i-1];
-            // prev1=a[i-1];
-            // prev2=b[i-1];
-            
+        
             if(a[i]>=prev1)dp[i][0]=max(dp[i][0],dp[i-1][0]+1);
             if(a[i]>=prev2)dp[i][0]=max(dp[i][0],dp[i-1][1]+1);
             
