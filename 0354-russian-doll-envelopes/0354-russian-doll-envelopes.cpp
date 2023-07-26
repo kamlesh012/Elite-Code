@@ -2,6 +2,11 @@ class Solution {
 public:
     int maxEnvelopes(vector<vector<int>>& env) {
         int n=env.size();
+        //Sorting in increasing order of widths to greedily form LIS in widths.
+        //Now to find LIS in unsorted heights we will use O(nlogn) CLassical LIS DP.
+        //but we can't take two pairs with same width,to skip pairs having same width
+        //sort the heights in decreasing order so that if in lis next elements having same widht cannot pick current element as next will always be smaller.
+        //Dry RUn a Test Case.
         
         sort(env.begin(),env.end(),[&](vector<int>&a,vector<int> &b){
            if(a[0]==b[0]) return a[1]>b[1];
