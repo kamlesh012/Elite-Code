@@ -13,11 +13,9 @@ public:
             if(i>0)st.insert(i);
             else mst.insert(i);
         }
-        // sort(arr.begin(),arr.end());
         
         for(auto i:st){
             auto it=st.find(2*i);
-            // cout<<i<<" "<<2*i<<" "<<*it<<endl;
             if(it!=st.end())st.erase(it);
             else return false;
             
@@ -26,13 +24,11 @@ public:
         
         for(auto i:mst){
             auto it=mst.find(2*i);
-            // cout<<i<<" "<<2*i<<" "<<*it<<endl;
             if(it!=mst.end())mst.erase(it);
             else return false;
             
             if(mst.empty())break;
         }
         return true;
-        
     }
 };
