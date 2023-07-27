@@ -14,7 +14,9 @@ public:
     vector<TreeNode*> allPossibleFBT(int n) {
         //Check COde Story wiht MIk's video:
 //https://www.youtube.com/watch?v=lNEI25uT3WM
-        unordered_map<int,TreeNode*> dp;
+        
+        //Memoization is Optional
+        unordered_map<int,vector<TreeNode*>> dp;
         
         function<vector<TreeNode*>(int)> rec=[&](int n){    
             if(n%2==0)return vector<TreeNode*>();
@@ -24,7 +26,7 @@ public:
             }
             else{
                 
-                // if(!dp.count(n)){
+                if(dp.count(n))return dp[n];
                     
                     vector<TreeNode *> result;
                     for(int i=1;i<n;i+=2){
@@ -52,8 +54,7 @@ public:
                             }
                         }
                      }
-                // }
-                return result;
+                return dp[n]=result;
             }
         };
         return rec(n);
