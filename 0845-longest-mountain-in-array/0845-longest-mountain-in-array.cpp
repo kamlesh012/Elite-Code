@@ -4,7 +4,7 @@ public:
       int n=a.size();
         int inc=0,dec=0,ans=0;
         for(int i=1;i<n;i++){
-            cout<<inc<<" "<<dec<<endl;
+            // cout<<inc<<" "<<dec<<endl;
             if(a[i]>a[i-1]){
                 if(!dec)inc++;
                 else{
@@ -18,7 +18,6 @@ public:
             }
             else inc=0,dec=0;
         }
-        cout<<endl;
         return ans;
     }
 };
