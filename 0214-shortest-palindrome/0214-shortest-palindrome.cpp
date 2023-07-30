@@ -1,6 +1,7 @@
 class Solution {
 public:
     string shortestPalindrome(string s) {
+        //Observation -> KMP Algorithm
         int m=s.length();
         string temp=s;
         string original=temp;
