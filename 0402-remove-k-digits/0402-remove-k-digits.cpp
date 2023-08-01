@@ -4,7 +4,6 @@ public:
         
         stack<char> stk;
         int n=nums.size();
-        // if(k==n)return string("0");
         
         for(int i=0;i<n;i++){
             if(stk.empty() || nums[i]>stk.top())
@@ -25,14 +24,13 @@ public:
             stk.pop();
         }
         
-        // cout<<ans<<endl;
-        
         string temp;
         int i=ans.size()-1;
         while(i>0 && ans[i]=='0')i--;
         while(i>=0)temp.push_back(ans[i--]);
         
         if(temp.empty())temp="0";
+        
         return temp;
     }
 };
