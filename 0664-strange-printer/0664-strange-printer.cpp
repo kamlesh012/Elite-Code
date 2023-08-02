@@ -1,5 +1,12 @@
 class Solution {
 public:
+//     https://www.youtube.com/watch?v=pV3arpA0TzY
+    //Try to think in terms of l & r
+    //if char at l==r then this will require only one operation + remainig operation for middle values
+    //else if char at l!=r then it will require multiple opertaions.
+    //for current l,try different choices for different r.
+    //then calculate ans for all the ranges recursively.
+    //     Dry RUn on: aabaadce
     int strangePrinter(string s) {
         int n=s.length();
         vector<vector<int>> dp(n+1,vector<int>(n+1,-1));
