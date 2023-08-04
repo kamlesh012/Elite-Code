@@ -10,7 +10,8 @@ public:
             else extra+=bat[i];
         }
         
-        //Binary Search
+        
+        //MY Binary Search
         long long l=-1ll,h=total+1ll;
         while(h-l>1){
             long long mid=(h-l)/2+l;
@@ -24,9 +25,7 @@ public:
         
         return l;
 
-
-      /*
-      
+     /* 
       //Greedy/Common Sense/Prefix Sum
       
         sort(top.begin(),top.end());
