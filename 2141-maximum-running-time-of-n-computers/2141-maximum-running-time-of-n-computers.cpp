@@ -10,6 +10,7 @@ public:
         }
         sort(top.begin(),top.end());
         
+        //Dry RUn on these.
 //             2
 //             [11,3,22]
         
@@ -18,25 +19,14 @@ public:
         
         int runtime=0;
         for(int i=1;i<top.size();i++){
-            int sub=(top[i]-top[i-1])*(i);
-            cout<<"sub "<<sub<<" "<<extra<<endl;
-            
+            int sub=(top[i]-top[i-1])*(i);   
             if(extra>=sub){
                 extra-=sub;
                 runtime=i;
             }   
             else break;
         }
-        
-        cout<<"TOP"<<endl;
-        for(auto i:top){
-            cout<<i<<" ";
-        }
-        cout<<endl;
-        cout<<"EXTRA "<<extra<<endl;
         long long mn=top[runtime];
-        cout<<runtime<<" runtime "<<top[runtime]<<endl;
-        cout<<mn<<endl;
         mn+=extra/(runtime+1);
         return mn;
     }
