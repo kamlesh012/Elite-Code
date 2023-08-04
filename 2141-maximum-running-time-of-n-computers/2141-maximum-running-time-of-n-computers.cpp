@@ -9,6 +9,8 @@ public:
             if(i<n)top.push_back(bat[i]);
             else extra+=bat[i];
         }
+        
+        //Binary Search
         long long l=-1ll,h=total+1ll;
         while(h-l>1){
             long long mid=(h-l)/2+l;
@@ -21,16 +23,12 @@ public:
         }
         
         return l;
-        
-        
 
-        //Dry RUn on these.
-//             2
-//             [11,3,22]
-        
-//         5
-//         [1,6,7,8,9,15]
-      /*  
+
+      /*
+      
+      //Greedy/Common Sense/Prefix Sum
+      
         sort(top.begin(),top.end());
         int runtime=0;
         for(int i=1;i<top.size();i++){
@@ -45,6 +43,13 @@ public:
         mn+=extra/(runtime+1);
         return mn;
         */
+        
+                //Dry RUn on these.
+//             2
+//             [11,3,22]
+        
+//         5
+//         [1,6,7,8,9,15]
     }
     
 };
