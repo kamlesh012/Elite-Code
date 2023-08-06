@@ -1,9 +1,12 @@
 class Solution {
 public:
     //Coin Combinations-II [CSES]
+    
     int change(int amount, vector<int>& coins) {
         
         int n=coins.size();
+        
+        //Iterative  DP
         vector<vector<int>> dp(n+1,vector<int>(amount+1,0));
         for(int i=0;i<=n;i++){
             for(int j=0;j<=amount;j++){
@@ -16,6 +19,8 @@ public:
             }
         }
         return dp[n][amount];
+        
+        //Recursive DP
 //         vector<vector<int>> dp(n+1,vector<int>(amount+1,-1));
 //         function<int(int,int)> rec=[&](int i,int sum){
 //             if(sum==0)return 1;
