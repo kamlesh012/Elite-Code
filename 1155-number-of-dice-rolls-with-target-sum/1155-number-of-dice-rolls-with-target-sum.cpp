@@ -2,11 +2,8 @@
 class Solution {
 public:
     int numRollsToTarget(int n, int k, int target) {
-        
-        // vector<vector<vector<int>>> dp(n+1,vector<vector<int>>(k+1,vector<int>(target+1,0)));
-        // vector<vector<vector<int>>> dp(n+1,vector<vector<int>>(target+1,vector<int>(k+1,0)));
+        //Iterative DP->AC
         // vector<vector<int>> dp(n+1,vector<int>(target+1,0));
-        
 //         for(int i=0;i<=n;i++){
 //             for(int t=0;t<=target;t++){
 //                 for(int j=0;j<=k;j++){
@@ -23,6 +20,7 @@ public:
 //         }
 //         return dp[n][target];
         
+        //Recursive DP->AC
         vector<vector<int>> dp(n+1,vector<int>(target+1,-1));
         function<int(int,int)> rec=[&](int i,int t){
             if(i==n && t==0)return 1;
