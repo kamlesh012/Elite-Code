@@ -23,7 +23,6 @@ public:
 //         }
 //         return dp[n][target];
         
-        //Failed Approaches
         vector<vector<int>> dp(n+1,vector<int>(target+1,-1));
         function<int(int,int)> rec=[&](int i,int t){
             if(i==n && t==0)return 1;
@@ -48,6 +47,7 @@ public:
         
         return rec(0,target);
         
+         //Failed Approaches
         // for(int i=0;i<=n;i++){
         //     for(int j=0;j<=k;j++){
         //         for(int t=0;t<=target;t++){           
