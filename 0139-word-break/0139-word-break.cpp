@@ -42,6 +42,7 @@ public:
         
         int n=s.size();
         
+        //1->Iterative DP
         vector<bool> dp(n+1,0);
         dp[n]=true;
         for(int start=n-1;start>=0;--start){
@@ -59,6 +60,7 @@ public:
         }
         return dp[0];
         
+        //2->Recursive DP
       // DP[i] represents whether the substring  starting at position is valid or not.
 //         vector<int> dp(n,-1);
 //         function<int(int)> rec=[&](int i){
