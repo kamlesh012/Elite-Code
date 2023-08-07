@@ -7,8 +7,10 @@ public:
         //There can be at max 2 & at least 1 centriod.
         //A centroid is a node that has min possible distance to every node.
         
-        //we can either use claim1 or claim2 to solve this problem.
-        //claim 2 uses Kahn's Topo Sort like Logic.
+        //We can either use claim1 or claim2 to solve this problem.
+        
+        
+        //I used claim 2 which uses Kahn's Topo Sort like Logic.
         //Basically we keep removing nodes with degree 1 & reduce degree of their neighbours.
         //at last level we will have either 1 or 2 nodes which will be centroid.
         
