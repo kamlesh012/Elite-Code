@@ -21,15 +21,8 @@ public:
         
         vector<int> ans;
         
-        // for(auto i:intervals){
-        //     cout<<i.first<<" "<<i.second<<endl;
-        // }
-        // cout<<endl;
-        
-        bool last=false;
         for(int i=1;i<intervals.size();i++){
             if(endd<intervals[i].first){
-                if(i==intervals.size()-1)last=true;
                 ans.push_back(endd-strt+1);
                 strt=intervals[i].first;
                 endd=intervals[i].second;
@@ -38,8 +31,7 @@ public:
                 endd=max(endd,intervals[i].second);
             }
         }
-        // if(!last)
-            ans.push_back(endd-strt+1);
+        ans.push_back(endd-strt+1);
         return ans;
             
     }
