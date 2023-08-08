@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<int> partitionLabels(string s) {
-        map<char,int> start,end;
+        unordered_map<char,int> start,end;
         int n=s.length();
         for(int i=0;i<n;i++){
             if(!start.count(s[i]))start[s[i]]=i+1;
