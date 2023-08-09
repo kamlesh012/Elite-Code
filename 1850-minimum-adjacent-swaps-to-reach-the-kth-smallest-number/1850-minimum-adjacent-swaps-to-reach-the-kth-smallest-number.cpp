@@ -20,4 +20,5 @@ public:
         }
         return cnt;
     }
+//     https://leetcode.com/problems/minimum-adjacent-swaps-to-reach-the-kth-smallest-number/discuss/1186818/C%2B%2B-Detailed-explanation-using-next_permutation
 };
