@@ -5,7 +5,7 @@ public:
         iota(num.begin(),num.end(),1);
         vector<vector<int>> ans;
         
-     function<void(int i,int left,vector<int> &temp)> knapsack=[&](int i,int left,vector<int> temp){
+     function<void(int i,int left,vector<int> &temp)> knapsack=[&](int i,int left,vector<int> &temp){
          if(!left){
              ans.push_back(temp);
              return;
