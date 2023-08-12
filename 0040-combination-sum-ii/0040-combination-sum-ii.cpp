@@ -1,7 +1,10 @@
 class Solution {
 public:
+    // The for loop that starts from index not 0 can be understood as starting from a specific level.
     vector<vector<int>> combinationSum2(vector<int>& cdt, int target) {
         vector<vector<int>> master;
+        
+        //this sorting is mandatory in order to skip continuosu elements at a level.
         sort(cdt.begin(),cdt.end());
         
         function<void(int ind,vector<int> &temp,int sum)> rec=[&](int ind,vector<int> &temp,int sum){
