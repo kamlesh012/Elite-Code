@@ -15,7 +15,10 @@ public:
             }
             
             if(ind==cdt.size() || k<=0)return;
-            
+            //Notice that in each recurisve call we are starting from ind.
+            //that means at this level we will choose elemnts in range [ind,n)
+            //Try to think of this for loop as the possible elemnts that we can choose at this level/iteration.
+            //since in next call we can't take same element next call will start from i+1.
             for(int i=ind;i<cdt.size();i++){
                 if(cdt[i]<=sum && tk>0){
                     temp.push_back(cdt[i]);
