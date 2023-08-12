@@ -3,7 +3,7 @@ public:
     vector<vector<int>> combinationSum(vector<int>& cdt, int target) {
         
      vector<vector<int>> master;
-        function<void(vector<int> &temp,int i,int sum)> rec=[&](vector<int> temp,int i,int sum){
+        function<void(vector<int> temp,int i,int sum)> rec=[&](vector<int> temp,int i,int sum){
             if(sum==0){
                 master.push_back(temp);
                 return;
