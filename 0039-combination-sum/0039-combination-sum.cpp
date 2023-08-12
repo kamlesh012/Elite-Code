@@ -1,6 +1,7 @@
 class Solution {
 public:
     vector<vector<int>> combinationSum(vector<int>& cdt, int target) {
+        //Brute-Force Recursive Knapsack.
         
      vector<vector<int>> master;
         function<void(vector<int> &temp,int i,int sum)> rec=[&](vector<int> &temp,int i,int sum){
