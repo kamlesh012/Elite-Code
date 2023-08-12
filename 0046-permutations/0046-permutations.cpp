@@ -1,5 +1,6 @@
 class Solution {
 public:
+//     Non-Standard Approach Manula Next-Permutation FUnciton.
     vector<int> next_perm(vector<int> &a){
         int n=a.size();
         if(n==1)return a;
@@ -30,45 +31,47 @@ public:
         return ans;
     }
     
-    //Stores the answer
-    vector<vector<int>> master;
-    
-    //Stores which elements have been added to current permutation.
-    unordered_set<int> st;
-    
-    void solve(vector<int> &temp,vector<int> &nums){
-        
-        if(temp.size()==nums.size()){
-            master.push_back(temp);
-            return;
-        }
-        
-        //Do this for all possible elements
-        for(int i=0;i<nums.size();i++){
-            
-            if(st.find(nums[i])==st.end()){
-                
-                // 1->Insert    
-                st.insert(nums[i]);
-                temp.push_back(nums[i]);
-                
-                // 2->Explore
-                solve(temp,nums);
-                
-                // 3->Revert
-                st.erase(nums[i]);
-                temp.pop_back();
-                
-            }
-        }
-        
-    }
     
     vector<vector<int>> permute(vector<int>& nums) {
-        //STandard Approach
-        vector<int> tmep;
-        solve(tmep,nums);
+        
+        //Standard BackTracking Approach
+        
+         //Stores the answer
+        vector<vector<int>> master;
+    
+    //Stores which elements have been added to current permutation.
+        unordered_set<int> st;
+        
+    function<void(vector<int> &temp)> solve=[&](vector<int> &temp){
+            if(temp.size()==nums.size()){
+                master.push_back(temp);
+                return;
+            }
+
+            //Do this for all possible elements
+            for(int i=0;i<nums.size();i++){
+
+                if(st.find(nums[i])==st.end()){
+
+                    // 1->Insert    
+                    st.insert(nums[i]);
+                    temp.push_back(nums[i]);
+
+                    // 2->Explore
+                    solve(temp);
+
+                    // 3->Revert
+                    st.erase(nums[i]);
+                    temp.pop_back();
+
+                }
+            }
+
+        };
+        vector<int> temp;
+        solve(temp);
         return master;
+        
         
         //         My Non-STandard Approach Using Next Permutation
         /*
