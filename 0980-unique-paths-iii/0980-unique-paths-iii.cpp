@@ -2,15 +2,15 @@ class Solution {
 public:
     vector<int> dir1={0,1,-1,0};
     vector<int> dir2={1,0,0,-1};
-    vector<int> path;
+    // vector<int> path;
     int back(int r,int c,vector<vector<int>> &grid,vector<vector<int>> &vis,int steps){
         if(grid[r][c]==2){
             // vis[r][c]=0;
-            cout<<" end "<<steps<<endl;
-            for(auto i:path){
-                cout<<i<<" ";
-            }
-            cout<<endl;
+            // cout<<" end "<<steps<<endl;
+            // for(auto i:path){
+            //     cout<<i<<" ";
+            // }
+            // cout<<endl;
             return !steps;
         }
         int n=grid.size(),m=grid[0].size();
@@ -23,11 +23,7 @@ public:
             if(x>=0 && x<n && y>=0 && y<m && grid[x][y]!=-1 && !vis[x][y] && steps>0){
             // cout<<grid[x][y]<<" "<<vis[x][y]<<endl;
                 vis[x][y]=1;
-                path.push_back(x);
-                path.push_back(y);
                 ans+=back(x,y,grid,vis,steps-1);
-                path.pop_back();
-                path.pop_back();
                 vis[x][y]=0;
             }
         }
@@ -49,7 +45,6 @@ public:
             }
         }
         vis[sr][sc]=1;
-        // cout<<" steps "<< steps<<endl;
         return back(sr,sc,grid,vis,steps+1);
     }
 };
