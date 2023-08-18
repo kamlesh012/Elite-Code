@@ -32,6 +32,7 @@ public:
                 for(int j=-1;j<=1;j++){
                     for(int k=-1;k<=1;k++){
                         int nr=r+j,nc=c+k;
+                        
                         //if current buld is turned on because of one of it's neighbours turn that off.
                         if(nr>=0 && nr<n && nc>=0 && nc<n && bulbs.find({nr,nc})!=bulbs.end()){
                             row[nr]--;
@@ -50,4 +51,5 @@ public:
         
         return ans;
     }
+//     https://leetcode.com/problems/grid-illumination/discuss/2155007/Clean-and-simple-C%2B%2B-code-or-Hashmap-or-Heavily-Commented
 };
