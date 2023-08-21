@@ -21,7 +21,7 @@ public:
             if(i)dp[i]=max(dp[i],dp[i-1]);
             
             //for all the offers that start at current index
-            for(auto v:range[i]){
+            for(auto &v:range[i]){
                 
                 int end=v.first,gold=v.second;
                 
