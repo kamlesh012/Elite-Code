@@ -6,7 +6,7 @@ public:
         //An Amazing O(n) DP Solution
         //Thanks Pawan Kumar Giri.
         
-        map<int,vector<pair<int,int>>> range;
+        unordered_map<int,vector<pair<int,int>>> range;
         //Storing all offers that start at index i  with their end points & gold coins.
         for(auto i:a){
             range[i[0]].push_back({i[1],i[2]});
