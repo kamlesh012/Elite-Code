@@ -2,7 +2,8 @@ class Solution {
 public:
     int longestEqualSubarray(vector<int>& nums, int k) {
         int n=nums.size();
-        vector<vector<int>> ind(n+1);
+        // vector<vector<int>> ind(n+1);
+        unordered_map<int,vector<int>> ind;
         
         for(int i=0;i<n;i++){
             ind[nums[i]].push_back(i);
