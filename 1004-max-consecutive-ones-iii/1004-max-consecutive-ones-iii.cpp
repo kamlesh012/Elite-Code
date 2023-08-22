@@ -10,6 +10,7 @@ public:
                 if(nums[j]==0)remove--;
                 j++;
             }
+            //handle cases when k=0 or there is no 1 in nums.
             if(remove<=k)ans=max(ans,i-j+1);
         }
         
