@@ -1,6 +1,7 @@
 class Solution {
 public:
     long long maxTaxiEarnings(int n, vector<vector<int>>& a) {
+//         Smartest O(n) DP.
         vector<vector<pair<long long,long long>>> points(n+1);
         vector<long long> dp(n+1,0ll);
         for(auto i:a){
@@ -15,6 +16,7 @@ public:
         }
         return dp[n];
         
+//         DP + BInary Search.
 //          int m=a.size();
 //         for(int i=0;i<m;i++){
 //             a[i][2]+=(a[i][1]-a[i][0]);
