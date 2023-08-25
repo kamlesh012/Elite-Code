@@ -23,7 +23,6 @@ public:
                 one=i-j+1;
             }
             two=rec(i+1);
-            // cout<<mx<<" "<<mx2<<" "<<i<<endl;
             ans=max(ans,one+two);
         }
         
