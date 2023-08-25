@@ -4,10 +4,9 @@ public:
         long long ans=0;
         int n=nums.size();
         long long int i=0,csum=0ll,tsum=0ll;
-        set<int> st;
-        bool encountered=false;
+        unordered_set<int> st;
         
-        map<int,int> freq;
+        vector<int> freq(100001,0);
         while(i<k){
             freq[nums[i]]++;
             st.insert(nums[i]);
