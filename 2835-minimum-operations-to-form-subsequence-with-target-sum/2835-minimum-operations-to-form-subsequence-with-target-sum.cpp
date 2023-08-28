@@ -21,8 +21,8 @@ public:
             int curr=v.back();
             v.pop_back();
 
-            long long rem=total_sum-curr;
-            if(rem>=target){
+            long long remaining_sum=total_sum-curr;
+            if(remaining_sum>=target){
                 total_sum-=curr;
             }
             else if(curr<=target){
