@@ -1,6 +1,11 @@
 class Solution {
 public:
     bool stoneGame(vector<int>& piles) {
+        //Observation:
+        return true;
+        
+        //OR using DP;
+        
         int n=piles.size();
         vector<vector<int>> dp(n,vector<int>(n,-1));
         //Consider this test case:
