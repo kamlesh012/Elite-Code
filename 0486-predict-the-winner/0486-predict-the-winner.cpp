@@ -13,7 +13,7 @@ public:
             return dp[i][j];
         };
         int ans=rec(0,n-1,1);
-        cout<<ans<<endl;
+        // cout<<ans<<endl;
         return ans>=0;
     }
 };
