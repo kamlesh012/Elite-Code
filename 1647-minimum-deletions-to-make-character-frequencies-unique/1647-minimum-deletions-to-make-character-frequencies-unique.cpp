@@ -7,7 +7,7 @@ public:
         // Bottom to top 5->3 4 5     8-> 6 7 8 2 (2+1+ 6+2+1)
         //Top to Bottom 8->4 6 7 8   5->2 3 5(4+2+1+ 3+2)
         
-        map<char,int> mp;
+        unordered_map<char,int> mp;
         int mx=0;
         for(auto i:s){
             mp[i]++;
