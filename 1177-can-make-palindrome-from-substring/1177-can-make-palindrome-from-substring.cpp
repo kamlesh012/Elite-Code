@@ -21,23 +21,11 @@ public:
             if(left-1>=0){
                 prevf=freq[left-1];
             }
+            
             int odd=0;
-            
-            // for(auto i:prevf){
-            //     cout<<i<<" ";
-            // }
-            // cout<<endl;
-            
             for(int i=0;i<26;i++){
                 odd+=((freq[right][i]-prevf[i])&1);
             }
-            // cout<<odd<<endl;
-            // for(int i=left;i<=right;i++){
-            //     freq[s[i]-'a']++;
-            // }
-            // for(auto i:freq){
-            //     if(i&1)odd++;
-            // }
             ans.push_back(((2*k)+(len%2))>=odd);
         }
         
