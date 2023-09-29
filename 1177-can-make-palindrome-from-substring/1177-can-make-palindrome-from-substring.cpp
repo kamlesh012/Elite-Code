@@ -13,7 +13,7 @@ public:
         }
         
         vector<bool> ans;
-        for(auto v:q){
+        for(auto &v:q){
             
             int left=v[0],right=v[1],k=v[2];
             int cnt=0,len=right-left+1;
