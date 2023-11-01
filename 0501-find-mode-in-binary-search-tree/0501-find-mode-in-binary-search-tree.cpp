@@ -12,7 +12,7 @@
 class Solution {
 public:
     vector<int> findMode(TreeNode* root) {
-        map<int,int> mp;
+        unordered_map<int,int> mp;
         function<void(TreeNode *rt)> rec=[&](TreeNode *rt){
             if(rt){
                 mp[rt->val]++;
