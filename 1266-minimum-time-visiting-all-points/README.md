@@ -18,18 +18,18 @@
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://assets.leetcode.com/uploads/2019/11/14/1626_example_1.PNG" style="width: 500px; height: 428px;">
-<pre style="position: relative;"><strong>Input:</strong> points = [[1,1],[3,4],[-1,0]]
+<pre><strong>Input:</strong> points = [[1,1],[3,4],[-1,0]]
 <strong>Output:</strong> 7
 <strong>Explanation: </strong>One optimal path is <strong>[1,1]</strong> -&gt; [2,2] -&gt; [3,3] -&gt; <strong>[3,4] </strong>-&gt; [2,3] -&gt; [1,2] -&gt; [0,1] -&gt; <strong>[-1,0]</strong>   
 Time from [1,1] to [3,4] = 3 seconds 
 Time from [3,4] to [-1,0] = 4 seconds
-Total time = 7 seconds<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+Total time = 7 seconds</pre>
 
 <p><strong class="example">Example 2:</strong></p>
 
-<pre style="position: relative;"><strong>Input:</strong> points = [[3,2],[-2,2]]
+<pre><strong>Input:</strong> points = [[3,2],[-2,2]]
 <strong>Output:</strong> 5
-<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+</pre>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
