@@ -17,18 +17,12 @@ public:
             
             int par=p[num];
             int child=num;
-            // cout<<"Locked parents of "<<num<<endl;
             while(par!=-1){
-                // cout<<"parent "<<par<<" child "<<child<<endl;
                 locked_children[par].insert(num);
                 child=par;
                 par=p[par];
             }
-            // for(auto i:locked_children[par]){
-                // cout<<i<<" ";
-            // }
             lockedby[num]=user;
-            // cout<<"ANSWER after locking: "<<num<< " "<<lockedby[num]<<endl;
             return true;
         }
         else return false;
@@ -36,8 +30,6 @@ public:
     
     bool unlock(int num, int user){
         if(lockedby.find(num)!=lockedby.end() && lockedby[num]==user){
-        // cout<<num<< " "<<user<<" "<<lockedby[num]<<endl;
-            
             //erase from all ancestors
             int par=p[num];
             int child=num;
@@ -54,8 +46,6 @@ public:
     
     bool upgrade(int num, int user) {
         if(lockedby.find(num)==lockedby.end()){
-            // cout<<"UPGRADE"<<endl;
-        // cout<<num<< " "<<user<<" "<<lockedby[num]<<endl;
             int par=p[num];
             int child=num;
             while(par!=-1){
@@ -64,10 +54,8 @@ public:
                 par=p[par];
             }
             if(locked_children[num].size()){
-                // cout<<"UPgrade" <<num<<" "<<user<<endl;
                 for(auto i:locked_children[num]){
                     int id=lockedby[i];
-                    // cout<<i<<" locked by: "<<id<<endl;
                     unlock(i,id);
                 }
                 
