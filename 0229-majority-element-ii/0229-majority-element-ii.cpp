@@ -33,7 +33,8 @@ public:
         // cout<<endl;
         
         vector<int> ans;
-        
+        //need to check when cnt1==cnt2, then value of both of them would be zero or less than that.
+//         cnt would be wrong but ele1 & ele2 will store correct elements.
         cnt1=0,cnt2=0;
         for(auto i:nums){
             if(i==ele1)cnt1++;
