@@ -9,7 +9,7 @@ public:
             else h=mid;
         }
         pivot=h;
-        cout<<pivot<<" pivot "<<a[pivot]<<endl;
+        // cout<<pivot<<" pivot "<<a[pivot]<<endl;
         
         if(target>=a[pivot] && target<=a[n-1])l=pivot-1,h=n;
         else l=-1,h=pivot;
