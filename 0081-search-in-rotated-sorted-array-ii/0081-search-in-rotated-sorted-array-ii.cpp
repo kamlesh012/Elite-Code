@@ -1,14 +1,19 @@
 class Solution {
 public:
     bool search(vector<int>& a, int target) {
+        //Skipping Duplicated on Boundaries that might cause problems in eliminating wrong search space.
+        
         int l=0,h=a.size()-1,n=a.size();
+        
         while(l+1<n && a[l]==a[l+1])l++;
         while(h>l && a[h]==a[l])h--;
         
+//      Case when all elements are equal.
         if(a[h]==a[l]){
             return a[h]==target;
         }
-        // n=h;
+        
+        //Code for Search in a Rotated Sorted Array-I
         int pivot=-1;
         while(h-l>1){
             int mid=(h-l)/2+l;
