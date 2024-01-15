@@ -2,6 +2,7 @@ class Solution {
 public:
     int search(vector<int>& a, int target) {
         int n=a.size();
+        
         int l=-1,h=n,pivot=-1;
         while(h-l>1){
             int mid=(h-l)/2+l;
