@@ -9,7 +9,6 @@ public:
             else h=mid;
         }
         pivot=h;
-        // cout<<pivot<<" pivot "<<a[pivot]<<endl;
         
         if(target>=a[pivot] && target<=a[n-1])l=pivot-1,h=n;
         else l=-1,h=pivot;
@@ -20,9 +19,8 @@ public:
             if(a[mid]<target)l=mid;
             else h=mid;
         }
-        // cout<<l<<" ans" <<h<<endl;
+        
         if(a[h]!=target)h=-1;
-        // if(h==l)h=-1;
         return h;
         
     }
