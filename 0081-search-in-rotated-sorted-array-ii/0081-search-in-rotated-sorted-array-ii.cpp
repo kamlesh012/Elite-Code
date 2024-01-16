@@ -16,7 +16,7 @@ public:
             return a[h]==target;
         }
         
-        //Code for Search in a Rotated Sorted Array-I
+        //NOn Standard BS Invariant :Code for Search in a Rotated Sorted Array-I
         int pivot=-1;
         while(h-l>1){
             int mid=(h-l)/2+l;
