@@ -1,13 +1,14 @@
 class Solution {
 public:
     bool search(vector<int>& a, int target) {
-        //Skipping Duplicates on Boundaries that might cause problems in eliminating wrong search space.
+        //Check KnockCat's solution in discuss for a more Convincing & Standard Solution.
+//       OR   COdeStoryWIthMIK's YT video's way of finding a pivot & then applying BinarySearch
         
 //         This is a Joke code.
 //         Joke of Invairant Binary Search
         int l=0,h=a.size()-1,n=a.size();
         
-        //Check KnockCat's solution in discuss for a more Convincing & Standard Solution.
+        //Skipping Duplicates on Boundaries that might cause problems in eliminating wrong search space.
         while(l+1<n && a[l]==a[l+1])l++;
         while(h>l && a[h]==a[l])h--;
         
