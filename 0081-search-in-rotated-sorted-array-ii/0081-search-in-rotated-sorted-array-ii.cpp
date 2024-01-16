@@ -1,13 +1,13 @@
 class Solution {
 public:
     bool search(vector<int>& a, int target) {
-        //Check KnockCat's solution in discuss for a more Convincing & Standard Solution.
         //Skipping Duplicates on Boundaries that might cause problems in eliminating wrong search space.
         
+//         This is a Joke code.
+//         Joke of Invairant Binary Search
         int l=0,h=a.size()-1,n=a.size();
-//         Joke code.
-//         Joke of invairant bs.
         
+        //Check KnockCat's solution in discuss for a more Convincing & Standard Solution.
         while(l+1<n && a[l]==a[l+1])l++;
         while(h>l && a[h]==a[l])h--;
         
