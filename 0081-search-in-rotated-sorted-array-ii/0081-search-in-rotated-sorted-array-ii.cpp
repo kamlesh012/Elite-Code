@@ -1,9 +1,12 @@
 class Solution {
 public:
     bool search(vector<int>& a, int target) {
-        //Skipping Duplicated on Boundaries that might cause problems in eliminating wrong search space.
+        //Check KnockCat's solution in discuss for a more Convincing & Standard Solution.
+        //Skipping Duplicates on Boundaries that might cause problems in eliminating wrong search space.
         
         int l=0,h=a.size()-1,n=a.size();
+//         Joke code.
+//         Joke of invairant bs.
         
         while(l+1<n && a[l]==a[l+1])l++;
         while(h>l && a[h]==a[l])h--;
