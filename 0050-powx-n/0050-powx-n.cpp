@@ -1,7 +1,7 @@
 class Solution {
 public:
     double myPow(double x, int n) {
-        if(x==1.000)return x;
+        // if(x==1.000)return x;
         if(n==0)return 1;
         function<double(double num,long long pow)> binexpo=[&](double num,long long pow){
             if(pow==1)return num;
