@@ -12,7 +12,7 @@
 class Solution {
 public:
     int rob(TreeNode* root) {
-        map<TreeNode*,map<bool,int>> dp;
+        unordered_map<TreeNode*,unordered_map<bool,int>> dp;
         
         function<int(TreeNode *rt,bool flag)> memo=[&](TreeNode *rt,bool flag){
             if(!rt)return 0;
