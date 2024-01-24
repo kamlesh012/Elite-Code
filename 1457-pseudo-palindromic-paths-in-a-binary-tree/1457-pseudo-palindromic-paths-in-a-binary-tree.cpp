@@ -13,7 +13,9 @@ class Solution {
 public:
     
     int pseudoPalindromicPaths (TreeNode* root) {
-        // unordered_map<int,int> freq;
+//         Understand the XOR approach as well.
+//         & CLarify this approach as well.
+//         why is passing oddcnt by reference causing an error.
         vector<int> freq(10,0);
         function<int(TreeNode *rt,int oddcnt)> solve=[&](TreeNode *rt,int oddcnt){
             if(rt){
