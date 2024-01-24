@@ -13,7 +13,7 @@ class Solution {
 public:
     
     int pseudoPalindromicPaths (TreeNode* root) {
-        map<int,int> freq;
+        unordered_map<int,int> freq;
         function<int(TreeNode *rt,int oddcnt)> solve=[&](TreeNode *rt,int oddcnt){
             if(rt){
                 int curr=rt->val;
