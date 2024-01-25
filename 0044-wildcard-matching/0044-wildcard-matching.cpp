@@ -24,18 +24,15 @@ public:
                 bool pick=false,npick=false,skip=false;
                 if(p[j]=='*'){
                     pick=mem(i+1,j);
-                    npick=mem(i+1,j+1);
+                    // npick=mem(i+1,j+1);
                     skip=mem(i,j+1);
-                    return dp[i][j]= pick || npick || skip;
+                    return dp[i][j]= pick || skip;
                 }
                 else if(p[j]=='?')return dp[i][j]=mem(i+1,j+1);
                 else return dp[i][j]=0;
             }    
         };
-        
         return mem(0,0);
-        //      abcdefdcg   
-        //      abc*dc?*
         
     }
 };
