@@ -2,11 +2,10 @@ class Solution {
 public:
     int findPaths(int m, int n, int maxMove, int r, int c) {
         int mod=1e9+7;
-        
         vector<vector<vector<int>>> dp(m+1,vector<vector<int>>(n+1,vector<int>(maxMove+1,-1)));
 //         pi & pj were supposed to be parent cell of i,j
-        //but they are not needed as if a cell visits its parents back then
-        //moves also be exhausted & that would be a different dp state, not the previosu one.
+        //but they are not needed because if a cell visits its parents back, then
+        // that would be a different path as seen in sample test case 2, moves also be exhausted & that would be a different dp state, not the previosu one.
         //so there won't be any infinte loop  problem.
         
         function<int(int,int,int,int,int)> paths=[&](int i,int j,int pi,int pj,int moves){
