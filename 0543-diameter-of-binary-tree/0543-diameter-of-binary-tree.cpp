@@ -19,12 +19,16 @@ public:
         int right=diam(rt->right);
          
 //          if a path passes from current node, then check if it's diameter or not
+         
+//          diameter passing from current node = left child edges+ right child edges
          mx=max(mx,left+right);
          
 //          return the maximum path from current node to any of it's leaves
 //          so that it can be used to calculate the diameter later
+//          +1  to include the edge between current node & its parent as well.
          return max(left,right)+1;
      };
+        
         diam(root);
         return mx;
     }
