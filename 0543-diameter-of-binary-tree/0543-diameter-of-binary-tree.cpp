@@ -12,15 +12,20 @@
 class Solution {
 public:
     int diameterOfBinaryTree(TreeNode* root) {
-        int diam=0; 
-        function<int(TreeNode *rt)> height=[&](TreeNode *rt){
-            if(!rt)return 0;
-            int left=height(rt->left);
-            int right=height(rt->right);
-            diam=max(diam,left+right);
-            return max(left,right)+1;
-        };
-        height(root);
-        return diam;
+    int mx=0;
+     function<int(TreeNode*rt)> diam=[&](TreeNode*rt){
+        if(!rt) return 0;
+        int left=diam(rt->left);
+        int right=diam(rt->right);
+         
+//          if a path passes from current node, then check if it's diameter or not
+         mx=max(mx,left+right);
+         
+//          return the maximum path from current node to any of it's leaves
+//          so that it can be used to calculate the diameter later
+         return max(left,right)+1;
+     };
+        diam(root);
+        return mx;
     }
 };
